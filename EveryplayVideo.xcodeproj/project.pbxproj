@@ -1,0 +1,379 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CC4C5BA81695D5DE0082B627 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BA71695D5DE0082B627 /* UIKit.framework */; };
+		CC4C5BAA1695D5DE0082B627 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BA91695D5DE0082B627 /* Foundation.framework */; };
+		CC4C5BAC1695D5DE0082B627 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BAB1695D5DE0082B627 /* CoreGraphics.framework */; };
+		CC4C5BB21695D5DE0082B627 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC4C5BB01695D5DE0082B627 /* InfoPlist.strings */; };
+		CC4C5BB41695D5DE0082B627 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C5BB31695D5DE0082B627 /* main.m */; };
+		CC4C5BB81695D5DE0082B627 /* EVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C5BB71695D5DE0082B627 /* EVAppDelegate.m */; };
+		CC4C5BCB1695D6F60082B627 /* EVVideosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C5BCA1695D6F60082B627 /* EVVideosTableViewController.m */; };
+		CC4C5BCD1695D97C0082B627 /* Everyplay.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CC4C5BCC1695D97C0082B627 /* Everyplay.bundle */; };
+		CC4C5BCF1695D9920082B627 /* Everyplay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BCE1695D9920082B627 /* Everyplay.framework */; };
+		CC4C5BD81695D9FD0082B627 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BD01695D9FD0082B627 /* AudioToolbox.framework */; };
+		CC4C5BD91695D9FD0082B627 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BD11695D9FD0082B627 /* AVFoundation.framework */; };
+		CC4C5BDA1695D9FD0082B627 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BD21695D9FD0082B627 /* CoreImage.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CC4C5BDB1695D9FD0082B627 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BD31695D9FD0082B627 /* MobileCoreServices.framework */; };
+		CC4C5BDC1695D9FD0082B627 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BD41695D9FD0082B627 /* OpenGLES.framework */; };
+		CC4C5BDD1695D9FD0082B627 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BD51695D9FD0082B627 /* QuartzCore.framework */; };
+		CC4C5BDE1695D9FD0082B627 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BD61695D9FD0082B627 /* StoreKit.framework */; };
+		CC4C5BDF1695D9FD0082B627 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BD71695D9FD0082B627 /* SystemConfiguration.framework */; };
+		CC4C5BE21695DA310082B627 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BE01695DA310082B627 /* CoreMedia.framework */; };
+		CC4C5BE31695DA310082B627 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BE11695DA310082B627 /* CoreVideo.framework */; };
+		CC4C5BE71695DA7B0082B627 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BE61695DA7A0082B627 /* Security.framework */; };
+		CC4C5BE91695DA850082B627 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BE81695DA850082B627 /* AssetsLibrary.framework */; };
+		CC4C5BEB1695DA900082B627 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BEA1695DA900082B627 /* MessageUI.framework */; };
+		CC8261E8169AC1730061413E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8261E7169AC1730061413E /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CCF7B3161699FBB20006CC80 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF7B3121699FBB20006CC80 /* Icon-72.png */; };
+		CCF7B3171699FBB20006CC80 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF7B3131699FBB20006CC80 /* Icon-72@2x.png */; };
+		CCF7B3181699FBB20006CC80 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF7B3141699FBB20006CC80 /* Icon.png */; };
+		CCF7B3191699FBB20006CC80 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF7B3151699FBB20006CC80 /* Icon@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CC4C5BA31695D5DE0082B627 /* EveryplayVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveryplayVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC4C5BA71695D5DE0082B627 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CC4C5BA91695D5DE0082B627 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CC4C5BAB1695D5DE0082B627 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CC4C5BAF1695D5DE0082B627 /* EveryplayVideo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EveryplayVideo-Info.plist"; sourceTree = "<group>"; };
+		CC4C5BB11695D5DE0082B627 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CC4C5BB31695D5DE0082B627 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CC4C5BB51695D5DE0082B627 /* EveryplayVideo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EveryplayVideo-Prefix.pch"; sourceTree = "<group>"; };
+		CC4C5BB61695D5DE0082B627 /* EVAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EVAppDelegate.h; sourceTree = "<group>"; };
+		CC4C5BB71695D5DE0082B627 /* EVAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EVAppDelegate.m; sourceTree = "<group>"; };
+		CC4C5BC91695D6F60082B627 /* EVVideosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVVideosTableViewController.h; sourceTree = "<group>"; };
+		CC4C5BCA1695D6F60082B627 /* EVVideosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVVideosTableViewController.m; sourceTree = "<group>"; };
+		CC4C5BCC1695D97C0082B627 /* Everyplay.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Everyplay.bundle; path = "../everyplay-ios-sdk/Everyplay.bundle"; sourceTree = "<group>"; };
+		CC4C5BCE1695D9920082B627 /* Everyplay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Everyplay.framework; path = "../everyplay-ios-sdk/Everyplay.framework"; sourceTree = "<group>"; };
+		CC4C5BD01695D9FD0082B627 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CC4C5BD11695D9FD0082B627 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CC4C5BD21695D9FD0082B627 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		CC4C5BD31695D9FD0082B627 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CC4C5BD41695D9FD0082B627 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		CC4C5BD51695D9FD0082B627 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CC4C5BD61695D9FD0082B627 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		CC4C5BD71695D9FD0082B627 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CC4C5BE01695DA310082B627 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		CC4C5BE11695DA310082B627 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		CC4C5BE61695DA7A0082B627 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CC4C5BE81695DA850082B627 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		CC4C5BEA1695DA900082B627 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		CC8261E7169AC1730061413E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		CCF7B3121699FBB20006CC80 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		CCF7B3131699FBB20006CC80 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		CCF7B3141699FBB20006CC80 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		CCF7B3151699FBB20006CC80 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CC4C5BA01695D5DE0082B627 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC4C5BA81695D5DE0082B627 /* UIKit.framework in Frameworks */,
+				CC4C5BAA1695D5DE0082B627 /* Foundation.framework in Frameworks */,
+				CC4C5BAC1695D5DE0082B627 /* CoreGraphics.framework in Frameworks */,
+				CC8261E8169AC1730061413E /* AdSupport.framework in Frameworks */,
+				CC4C5BE91695DA850082B627 /* AssetsLibrary.framework in Frameworks */,
+				CC4C5BD81695D9FD0082B627 /* AudioToolbox.framework in Frameworks */,
+				CC4C5BD91695D9FD0082B627 /* AVFoundation.framework in Frameworks */,
+				CC4C5BDA1695D9FD0082B627 /* CoreImage.framework in Frameworks */,
+				CC4C5BE21695DA310082B627 /* CoreMedia.framework in Frameworks */,
+				CC4C5BE31695DA310082B627 /* CoreVideo.framework in Frameworks */,
+				CC4C5BEB1695DA900082B627 /* MessageUI.framework in Frameworks */,
+				CC4C5BDB1695D9FD0082B627 /* MobileCoreServices.framework in Frameworks */,
+				CC4C5BDC1695D9FD0082B627 /* OpenGLES.framework in Frameworks */,
+				CC4C5BDD1695D9FD0082B627 /* QuartzCore.framework in Frameworks */,
+				CC4C5BE71695DA7B0082B627 /* Security.framework in Frameworks */,
+				CC4C5BDE1695D9FD0082B627 /* StoreKit.framework in Frameworks */,
+				CC4C5BDF1695D9FD0082B627 /* SystemConfiguration.framework in Frameworks */,
+				CC4C5BCF1695D9920082B627 /* Everyplay.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CC4C5B981695D5DE0082B627 = {
+			isa = PBXGroup;
+			children = (
+				CC4C5BAD1695D5DE0082B627 /* EveryplayVideo */,
+				CC5B2D2016987569007ECDC7 /* Everyplay */,
+				CC4C5BA61695D5DE0082B627 /* Frameworks */,
+				CC4C5BA41695D5DE0082B627 /* Products */,
+			);
+			indentWidth = 4;
+			sourceTree = "<group>";
+			tabWidth = 4;
+		};
+		CC4C5BA41695D5DE0082B627 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CC4C5BA31695D5DE0082B627 /* EveryplayVideo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CC4C5BA61695D5DE0082B627 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC4C5BA71695D5DE0082B627 /* UIKit.framework */,
+				CC4C5BA91695D5DE0082B627 /* Foundation.framework */,
+				CC4C5BAB1695D5DE0082B627 /* CoreGraphics.framework */,
+				CC8261E7169AC1730061413E /* AdSupport.framework */,
+				CC4C5BE81695DA850082B627 /* AssetsLibrary.framework */,
+				CC4C5BD01695D9FD0082B627 /* AudioToolbox.framework */,
+				CC4C5BD11695D9FD0082B627 /* AVFoundation.framework */,
+				CC4C5BD21695D9FD0082B627 /* CoreImage.framework */,
+				CC4C5BE01695DA310082B627 /* CoreMedia.framework */,
+				CC4C5BE11695DA310082B627 /* CoreVideo.framework */,
+				CC4C5BEA1695DA900082B627 /* MessageUI.framework */,
+				CC4C5BD31695D9FD0082B627 /* MobileCoreServices.framework */,
+				CC4C5BD41695D9FD0082B627 /* OpenGLES.framework */,
+				CC4C5BD51695D9FD0082B627 /* QuartzCore.framework */,
+				CC4C5BE61695DA7A0082B627 /* Security.framework */,
+				CC4C5BD61695D9FD0082B627 /* StoreKit.framework */,
+				CC4C5BD71695D9FD0082B627 /* SystemConfiguration.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC4C5BAD1695D5DE0082B627 /* EveryplayVideo */ = {
+			isa = PBXGroup;
+			children = (
+				CC4C5BB61695D5DE0082B627 /* EVAppDelegate.h */,
+				CC4C5BB71695D5DE0082B627 /* EVAppDelegate.m */,
+				CC4C5BC91695D6F60082B627 /* EVVideosTableViewController.h */,
+				CC4C5BCA1695D6F60082B627 /* EVVideosTableViewController.m */,
+				CC4C5BAE1695D5DE0082B627 /* Supporting Files */,
+			);
+			path = EveryplayVideo;
+			sourceTree = "<group>";
+		};
+		CC4C5BAE1695D5DE0082B627 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CC4C5BAF1695D5DE0082B627 /* EveryplayVideo-Info.plist */,
+				CC4C5BB51695D5DE0082B627 /* EveryplayVideo-Prefix.pch */,
+				CCF7B3121699FBB20006CC80 /* Icon-72.png */,
+				CCF7B3131699FBB20006CC80 /* Icon-72@2x.png */,
+				CCF7B3141699FBB20006CC80 /* Icon.png */,
+				CCF7B3151699FBB20006CC80 /* Icon@2x.png */,
+				CC4C5BB01695D5DE0082B627 /* InfoPlist.strings */,
+				CC4C5BB31695D5DE0082B627 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CC5B2D2016987569007ECDC7 /* Everyplay */ = {
+			isa = PBXGroup;
+			children = (
+				CC4C5BCC1695D97C0082B627 /* Everyplay.bundle */,
+				CC4C5BCE1695D9920082B627 /* Everyplay.framework */,
+			);
+			name = Everyplay;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CC4C5BA21695D5DE0082B627 /* EveryplayVideo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC4C5BC11695D5DE0082B627 /* Build configuration list for PBXNativeTarget "EveryplayVideo" */;
+			buildPhases = (
+				CC4C5B9F1695D5DE0082B627 /* Sources */,
+				CC4C5BA01695D5DE0082B627 /* Frameworks */,
+				CC4C5BA11695D5DE0082B627 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EveryplayVideo;
+			productName = EveryplayVideo;
+			productReference = CC4C5BA31695D5DE0082B627 /* EveryplayVideo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CC4C5B9A1695D5DE0082B627 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EV;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = Everyplay;
+			};
+			buildConfigurationList = CC4C5B9D1695D5DE0082B627 /* Build configuration list for PBXProject "EveryplayVideo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CC4C5B981695D5DE0082B627;
+			productRefGroup = CC4C5BA41695D5DE0082B627 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CC4C5BA21695D5DE0082B627 /* EveryplayVideo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CC4C5BA11695D5DE0082B627 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC4C5BB21695D5DE0082B627 /* InfoPlist.strings in Resources */,
+				CC4C5BCD1695D97C0082B627 /* Everyplay.bundle in Resources */,
+				CCF7B3161699FBB20006CC80 /* Icon-72.png in Resources */,
+				CCF7B3171699FBB20006CC80 /* Icon-72@2x.png in Resources */,
+				CCF7B3181699FBB20006CC80 /* Icon.png in Resources */,
+				CCF7B3191699FBB20006CC80 /* Icon@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CC4C5B9F1695D5DE0082B627 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC4C5BB41695D5DE0082B627 /* main.m in Sources */,
+				CC4C5BB81695D5DE0082B627 /* EVAppDelegate.m in Sources */,
+				CC4C5BCB1695D6F60082B627 /* EVVideosTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CC4C5BB01695D5DE0082B627 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CC4C5BB11695D5DE0082B627 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CC4C5BBF1695D5DE0082B627 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CC4C5BC01695D5DE0082B627 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CC4C5BC21695D5DE0082B627 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../everyplay-ios-sdk\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EveryplayVideo/EveryplayVideo-Prefix.pch";
+				INFOPLIST_FILE = "EveryplayVideo/EveryplayVideo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CC4C5BC31695D5DE0082B627 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../everyplay-ios-sdk\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EveryplayVideo/EveryplayVideo-Prefix.pch";
+				INFOPLIST_FILE = "EveryplayVideo/EveryplayVideo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CC4C5B9D1695D5DE0082B627 /* Build configuration list for PBXProject "EveryplayVideo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC4C5BBF1695D5DE0082B627 /* Debug */,
+				CC4C5BC01695D5DE0082B627 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC4C5BC11695D5DE0082B627 /* Build configuration list for PBXNativeTarget "EveryplayVideo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC4C5BC21695D5DE0082B627 /* Debug */,
+				CC4C5BC31695D5DE0082B627 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CC4C5B9A1695D5DE0082B627 /* Project object */;
+}

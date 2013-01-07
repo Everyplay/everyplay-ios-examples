@@ -1,0 +1,387 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CC4C5B3C16944F180082B627 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5B3B16944F180082B627 /* UIKit.framework */; };
+		CC4C5B3E16944F180082B627 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5B3D16944F180082B627 /* Foundation.framework */; };
+		CC4C5B4016944F180082B627 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5B3F16944F180082B627 /* CoreGraphics.framework */; };
+		CC4C5B4616944F180082B627 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC4C5B4416944F180082B627 /* InfoPlist.strings */; };
+		CC4C5B4816944F180082B627 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C5B4716944F180082B627 /* main.m */; };
+		CC4C5B4C16944F180082B627 /* ELAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C5B4B16944F180082B627 /* ELAppDelegate.m */; };
+		CC4C5B69169450CE0082B627 /* ELViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC4C5B68169450CE0082B627 /* ELViewController_iPhone.xib */; };
+		CC4C5B6C169450EC0082B627 /* ELViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC4C5B6B169450EC0082B627 /* ELViewController_iPad.xib */; };
+		CC4C5B70169451280082B627 /* ELViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4C5B6E169451280082B627 /* ELViewController.m */; };
+		CC4C5B731694541C0082B627 /* Everyplay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5B721694541C0082B627 /* Everyplay.framework */; };
+		CC4C5B75169454FD0082B627 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5B74169454FD0082B627 /* AVFoundation.framework */; };
+		CC4C5B77169455150082B627 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5B76169455150082B627 /* Security.framework */; };
+		CC4C5B7D169457680082B627 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5B7C169457680082B627 /* QuartzCore.framework */; };
+		CC4C5B7F169457760082B627 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5B7E169457760082B627 /* OpenGLES.framework */; };
+		CC4C5B81169457870082B627 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5B80169457870082B627 /* CoreVideo.framework */; };
+		CC4C5B83169457930082B627 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5B82169457930082B627 /* CoreMedia.framework */; };
+		CC4C5B87169457AD0082B627 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5B86169457AD0082B627 /* StoreKit.framework */; };
+		CC4C5B89169457C80082B627 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5B88169457C80082B627 /* SystemConfiguration.framework */; };
+		CC4C5B8D169457E00082B627 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5B8C169457E00082B627 /* AssetsLibrary.framework */; };
+		CC4C5B8F169457F10082B627 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5B8E169457F10082B627 /* CoreImage.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CC4C5B911694581F0082B627 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5B901694581F0082B627 /* MobileCoreServices.framework */; };
+		CC4C5B931694582E0082B627 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5B921694582E0082B627 /* MessageUI.framework */; };
+		CC4C5B95169458440082B627 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5B94169458440082B627 /* AudioToolbox.framework */; };
+		CC4C5B971694662F0082B627 /* Everyplay.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CC4C5B961694662F0082B627 /* Everyplay.bundle */; };
+		CC8261E6169AC1420061413E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8261E5169AC1420061413E /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CCF7B3311699FDE00006CC80 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF7B3301699FDE00006CC80 /* Icon.png */; };
+		CCF7B3341699FDEC0006CC80 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF7B3331699FDEC0006CC80 /* Icon@2x.png */; };
+		CCF7B3361699FDF60006CC80 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF7B3351699FDF60006CC80 /* Icon-72.png */; };
+		CCF7B3381699FDFC0006CC80 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF7B3371699FDFC0006CC80 /* Icon-72@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CC4C5B3716944F180082B627 /* EveryplayLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveryplayLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC4C5B3B16944F180082B627 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CC4C5B3D16944F180082B627 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CC4C5B3F16944F180082B627 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CC4C5B4316944F180082B627 /* EveryplayLogin-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EveryplayLogin-Info.plist"; sourceTree = "<group>"; };
+		CC4C5B4516944F180082B627 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CC4C5B4716944F180082B627 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CC4C5B4916944F180082B627 /* EveryplayLogin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EveryplayLogin-Prefix.pch"; sourceTree = "<group>"; };
+		CC4C5B4A16944F180082B627 /* ELAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELAppDelegate.h; sourceTree = "<group>"; };
+		CC4C5B4B16944F180082B627 /* ELAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELAppDelegate.m; sourceTree = "<group>"; };
+		CC4C5B68169450CE0082B627 /* ELViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELViewController_iPhone.xib; sourceTree = "<group>"; };
+		CC4C5B6B169450EC0082B627 /* ELViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELViewController_iPad.xib; sourceTree = "<group>"; };
+		CC4C5B6D169451280082B627 /* ELViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELViewController.h; sourceTree = "<group>"; };
+		CC4C5B6E169451280082B627 /* ELViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELViewController.m; sourceTree = "<group>"; };
+		CC4C5B721694541C0082B627 /* Everyplay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Everyplay.framework; path = "../everyplay-ios-sdk/Everyplay.framework"; sourceTree = "<group>"; };
+		CC4C5B74169454FD0082B627 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CC4C5B76169455150082B627 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CC4C5B7C169457680082B627 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CC4C5B7E169457760082B627 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		CC4C5B80169457870082B627 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		CC4C5B82169457930082B627 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		CC4C5B86169457AD0082B627 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		CC4C5B88169457C80082B627 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CC4C5B8C169457E00082B627 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		CC4C5B8E169457F10082B627 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		CC4C5B901694581F0082B627 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CC4C5B921694582E0082B627 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		CC4C5B94169458440082B627 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CC4C5B961694662F0082B627 /* Everyplay.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Everyplay.bundle; path = "../everyplay-ios-sdk/Everyplay.bundle"; sourceTree = "<group>"; };
+		CC8261E5169AC1420061413E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		CCF7B3301699FDE00006CC80 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		CCF7B3331699FDEC0006CC80 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		CCF7B3351699FDF60006CC80 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		CCF7B3371699FDFC0006CC80 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CC4C5B3416944F180082B627 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC4C5B3C16944F180082B627 /* UIKit.framework in Frameworks */,
+				CC4C5B3E16944F180082B627 /* Foundation.framework in Frameworks */,
+				CC4C5B4016944F180082B627 /* CoreGraphics.framework in Frameworks */,
+				CC8261E6169AC1420061413E /* AdSupport.framework in Frameworks */,
+				CC4C5B8D169457E00082B627 /* AssetsLibrary.framework in Frameworks */,
+				CC4C5B95169458440082B627 /* AudioToolbox.framework in Frameworks */,
+				CC4C5B75169454FD0082B627 /* AVFoundation.framework in Frameworks */,
+				CC4C5B8F169457F10082B627 /* CoreImage.framework in Frameworks */,
+				CC4C5B83169457930082B627 /* CoreMedia.framework in Frameworks */,
+				CC4C5B81169457870082B627 /* CoreVideo.framework in Frameworks */,
+				CC4C5B931694582E0082B627 /* MessageUI.framework in Frameworks */,
+				CC4C5B911694581F0082B627 /* MobileCoreServices.framework in Frameworks */,
+				CC4C5B7F169457760082B627 /* OpenGLES.framework in Frameworks */,
+				CC4C5B7D169457680082B627 /* QuartzCore.framework in Frameworks */,
+				CC4C5B77169455150082B627 /* Security.framework in Frameworks */,
+				CC4C5B87169457AD0082B627 /* StoreKit.framework in Frameworks */,
+				CC4C5B89169457C80082B627 /* SystemConfiguration.framework in Frameworks */,
+				CC4C5B731694541C0082B627 /* Everyplay.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CC4C5B2C16944F180082B627 = {
+			isa = PBXGroup;
+			children = (
+				CC4C5B4116944F180082B627 /* EveryplayLogin */,
+				CC5B2D211698757A007ECDC7 /* Everyplay */,
+				CC4C5B3A16944F180082B627 /* Frameworks */,
+				CC4C5B3816944F180082B627 /* Products */,
+			);
+			indentWidth = 4;
+			sourceTree = "<group>";
+			tabWidth = 4;
+		};
+		CC4C5B3816944F180082B627 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CC4C5B3716944F180082B627 /* EveryplayLogin.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CC4C5B3A16944F180082B627 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC4C5B3B16944F180082B627 /* UIKit.framework */,
+				CC4C5B3D16944F180082B627 /* Foundation.framework */,
+				CC4C5B3F16944F180082B627 /* CoreGraphics.framework */,
+				CC8261E5169AC1420061413E /* AdSupport.framework */,
+				CC4C5B8C169457E00082B627 /* AssetsLibrary.framework */,
+				CC4C5B94169458440082B627 /* AudioToolbox.framework */,
+				CC4C5B74169454FD0082B627 /* AVFoundation.framework */,
+				CC4C5B8E169457F10082B627 /* CoreImage.framework */,
+				CC4C5B82169457930082B627 /* CoreMedia.framework */,
+				CC4C5B80169457870082B627 /* CoreVideo.framework */,
+				CC4C5B921694582E0082B627 /* MessageUI.framework */,
+				CC4C5B901694581F0082B627 /* MobileCoreServices.framework */,
+				CC4C5B7E169457760082B627 /* OpenGLES.framework */,
+				CC4C5B7C169457680082B627 /* QuartzCore.framework */,
+				CC4C5B76169455150082B627 /* Security.framework */,
+				CC4C5B86169457AD0082B627 /* StoreKit.framework */,
+				CC4C5B88169457C80082B627 /* SystemConfiguration.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC4C5B4116944F180082B627 /* EveryplayLogin */ = {
+			isa = PBXGroup;
+			children = (
+				CC4C5B4A16944F180082B627 /* ELAppDelegate.h */,
+				CC4C5B4B16944F180082B627 /* ELAppDelegate.m */,
+				CC4C5B6D169451280082B627 /* ELViewController.h */,
+				CC4C5B6E169451280082B627 /* ELViewController.m */,
+				CC4C5B6B169450EC0082B627 /* ELViewController_iPad.xib */,
+				CC4C5B68169450CE0082B627 /* ELViewController_iPhone.xib */,
+				CC4C5B4216944F180082B627 /* Supporting Files */,
+			);
+			path = EveryplayLogin;
+			sourceTree = "<group>";
+		};
+		CC4C5B4216944F180082B627 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CC4C5B4316944F180082B627 /* EveryplayLogin-Info.plist */,
+				CC4C5B4916944F180082B627 /* EveryplayLogin-Prefix.pch */,
+				CCF7B3351699FDF60006CC80 /* Icon-72.png */,
+				CCF7B3371699FDFC0006CC80 /* Icon-72@2x.png */,
+				CCF7B3301699FDE00006CC80 /* Icon.png */,
+				CCF7B3331699FDEC0006CC80 /* Icon@2x.png */,
+				CC4C5B4416944F180082B627 /* InfoPlist.strings */,
+				CC4C5B4716944F180082B627 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CC5B2D211698757A007ECDC7 /* Everyplay */ = {
+			isa = PBXGroup;
+			children = (
+				CC4C5B961694662F0082B627 /* Everyplay.bundle */,
+				CC4C5B721694541C0082B627 /* Everyplay.framework */,
+			);
+			name = Everyplay;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CC4C5B3616944F180082B627 /* EveryplayLogin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC4C5B5516944F180082B627 /* Build configuration list for PBXNativeTarget "EveryplayLogin" */;
+			buildPhases = (
+				CC4C5B3316944F180082B627 /* Sources */,
+				CC4C5B3416944F180082B627 /* Frameworks */,
+				CC4C5B3516944F180082B627 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EveryplayLogin;
+			productName = EveryplayLogin;
+			productReference = CC4C5B3716944F180082B627 /* EveryplayLogin.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CC4C5B2E16944F180082B627 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EL;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = Everyplay;
+			};
+			buildConfigurationList = CC4C5B3116944F180082B627 /* Build configuration list for PBXProject "EveryplayLogin" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CC4C5B2C16944F180082B627;
+			productRefGroup = CC4C5B3816944F180082B627 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CC4C5B3616944F180082B627 /* EveryplayLogin */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CC4C5B3516944F180082B627 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC4C5B4616944F180082B627 /* InfoPlist.strings in Resources */,
+				CC4C5B69169450CE0082B627 /* ELViewController_iPhone.xib in Resources */,
+				CC4C5B6C169450EC0082B627 /* ELViewController_iPad.xib in Resources */,
+				CC4C5B971694662F0082B627 /* Everyplay.bundle in Resources */,
+				CCF7B3311699FDE00006CC80 /* Icon.png in Resources */,
+				CCF7B3341699FDEC0006CC80 /* Icon@2x.png in Resources */,
+				CCF7B3361699FDF60006CC80 /* Icon-72.png in Resources */,
+				CCF7B3381699FDFC0006CC80 /* Icon-72@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CC4C5B3316944F180082B627 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC4C5B4816944F180082B627 /* main.m in Sources */,
+				CC4C5B4C16944F180082B627 /* ELAppDelegate.m in Sources */,
+				CC4C5B70169451280082B627 /* ELViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CC4C5B4416944F180082B627 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CC4C5B4516944F180082B627 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CC4C5B5316944F180082B627 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CC4C5B5416944F180082B627 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CC4C5B5616944F180082B627 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../everyplay-ios-sdk\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EveryplayLogin/EveryplayLogin-Prefix.pch";
+				INFOPLIST_FILE = "EveryplayLogin/EveryplayLogin-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CC4C5B5716944F180082B627 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../everyplay-ios-sdk\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EveryplayLogin/EveryplayLogin-Prefix.pch";
+				INFOPLIST_FILE = "EveryplayLogin/EveryplayLogin-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CC4C5B3116944F180082B627 /* Build configuration list for PBXProject "EveryplayLogin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC4C5B5316944F180082B627 /* Debug */,
+				CC4C5B5416944F180082B627 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC4C5B5516944F180082B627 /* Build configuration list for PBXNativeTarget "EveryplayLogin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC4C5B5616944F180082B627 /* Debug */,
+				CC4C5B5716944F180082B627 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CC4C5B2E16944F180082B627 /* Project object */;
+}

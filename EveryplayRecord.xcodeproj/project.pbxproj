@@ -1,0 +1,448 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CC5B2C8416977AEF007ECDC7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5B2C8316977AEF007ECDC7 /* UIKit.framework */; };
+		CC5B2C8616977AEF007ECDC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5B2C8516977AEF007ECDC7 /* Foundation.framework */; };
+		CC5B2C8816977AEF007ECDC7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5B2C8716977AEF007ECDC7 /* CoreGraphics.framework */; };
+		CC5B2C8E16977AEF007ECDC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC5B2C8C16977AEF007ECDC7 /* InfoPlist.strings */; };
+		CC5B2C9016977AEF007ECDC7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5B2C8F16977AEF007ECDC7 /* main.m */; };
+		CC5B2C9416977AEF007ECDC7 /* ERAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5B2C9316977AEF007ECDC7 /* ERAppDelegate.m */; };
+		CC5B2C9D16977AEF007ECDC7 /* ERViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CC5B2C9C16977AEF007ECDC7 /* ERViewController.mm */; };
+		CC5B2CA016977AEF007ECDC7 /* ERViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC5B2C9E16977AEF007ECDC7 /* ERViewController_iPhone.xib */; };
+		CC5B2CA316977AEF007ECDC7 /* ERViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC5B2CA116977AEF007ECDC7 /* ERViewController_iPad.xib */; };
+		CC5B2CBF16978982007ECDC7 /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5B2CBE16978982007ECDC7 /* EAGLView.m */; };
+		CC5B2CD316978AA7007ECDC7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5B2CC216978AA6007ECDC7 /* AssetsLibrary.framework */; };
+		CC5B2CD416978AA7007ECDC7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5B2CC316978AA6007ECDC7 /* AudioToolbox.framework */; };
+		CC5B2CD516978AA7007ECDC7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5B2CC416978AA7007ECDC7 /* AVFoundation.framework */; };
+		CC5B2CD816978AA7007ECDC7 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5B2CC716978AA7007ECDC7 /* CoreImage.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CC5B2CD916978AA7007ECDC7 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5B2CC816978AA7007ECDC7 /* CoreMedia.framework */; };
+		CC5B2CDA16978AA7007ECDC7 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5B2CC916978AA7007ECDC7 /* CoreVideo.framework */; };
+		CC5B2CDC16978AA7007ECDC7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5B2CCB16978AA7007ECDC7 /* MessageUI.framework */; };
+		CC5B2CDD16978AA7007ECDC7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5B2CCC16978AA7007ECDC7 /* MobileCoreServices.framework */; };
+		CC5B2CDE16978AA7007ECDC7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5B2CCD16978AA7007ECDC7 /* OpenGLES.framework */; };
+		CC5B2CDF16978AA7007ECDC7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5B2CCE16978AA7007ECDC7 /* QuartzCore.framework */; };
+		CC5B2CE016978AA7007ECDC7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5B2CCF16978AA7007ECDC7 /* Security.framework */; };
+		CC5B2CE116978AA7007ECDC7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5B2CD016978AA7007ECDC7 /* StoreKit.framework */; };
+		CC5B2CE216978AA7007ECDC7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5B2CD116978AA7007ECDC7 /* SystemConfiguration.framework */; };
+		CC5B2CE516978B28007ECDC7 /* Everyplay.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CC5B2CE316978B28007ECDC7 /* Everyplay.bundle */; };
+		CC5B2CE616978B28007ECDC7 /* Everyplay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5B2CE416978B28007ECDC7 /* Everyplay.framework */; };
+		CC5B2CFE16982A4B007ECDC7 /* loop.wav in Resources */ = {isa = PBXBuildFile; fileRef = CC5B2CFA16982A4B007ECDC7 /* loop.wav */; };
+		CC5B2D0116982A84007ECDC7 /* Shader_f.glsl in Resources */ = {isa = PBXBuildFile; fileRef = CC5B2CFC16982A4B007ECDC7 /* Shader_f.glsl */; };
+		CC5B2D0216982A8A007ECDC7 /* Shader_v.glsl in Resources */ = {isa = PBXBuildFile; fileRef = CC5B2CFD16982A4B007ECDC7 /* Shader_v.glsl */; };
+		CC8261EB169AC1840061413E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8261EA169AC1840061413E /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CCF7B3091699FB830006CC80 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF7B3051699FB830006CC80 /* Icon-72.png */; };
+		CCF7B30A1699FB830006CC80 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF7B3061699FB830006CC80 /* Icon-72@2x.png */; };
+		CCF7B30B1699FB830006CC80 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF7B3071699FB830006CC80 /* Icon.png */; };
+		CCF7B30C1699FB830006CC80 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF7B3081699FB830006CC80 /* Icon@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CC5B2C7F16977AEF007ECDC7 /* EveryplayRecord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveryplayRecord.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC5B2C8316977AEF007ECDC7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CC5B2C8516977AEF007ECDC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CC5B2C8716977AEF007ECDC7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CC5B2C8B16977AEF007ECDC7 /* EveryplayRecord-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EveryplayRecord-Info.plist"; sourceTree = "<group>"; };
+		CC5B2C8D16977AEF007ECDC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CC5B2C8F16977AEF007ECDC7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CC5B2C9116977AEF007ECDC7 /* EveryplayRecord-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EveryplayRecord-Prefix.pch"; sourceTree = "<group>"; };
+		CC5B2C9216977AEF007ECDC7 /* ERAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERAppDelegate.h; sourceTree = "<group>"; };
+		CC5B2C9316977AEF007ECDC7 /* ERAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ERAppDelegate.m; sourceTree = "<group>"; };
+		CC5B2C9B16977AEF007ECDC7 /* ERViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ERViewController.h; sourceTree = "<group>"; };
+		CC5B2C9C16977AEF007ECDC7 /* ERViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ERViewController.mm; sourceTree = "<group>"; };
+		CC5B2C9F16977AEF007ECDC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ERViewController_iPhone.xib; sourceTree = "<group>"; };
+		CC5B2CA216977AEF007ECDC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ERViewController_iPad.xib; sourceTree = "<group>"; };
+		CC5B2CBC16978982007ECDC7 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		CC5B2CBD16978982007ECDC7 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
+		CC5B2CBE16978982007ECDC7 /* EAGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
+		CC5B2CC216978AA6007ECDC7 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		CC5B2CC316978AA6007ECDC7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CC5B2CC416978AA7007ECDC7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CC5B2CC716978AA7007ECDC7 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		CC5B2CC816978AA7007ECDC7 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		CC5B2CC916978AA7007ECDC7 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		CC5B2CCB16978AA7007ECDC7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		CC5B2CCC16978AA7007ECDC7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CC5B2CCD16978AA7007ECDC7 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		CC5B2CCE16978AA7007ECDC7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CC5B2CCF16978AA7007ECDC7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CC5B2CD016978AA7007ECDC7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		CC5B2CD116978AA7007ECDC7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CC5B2CE316978B28007ECDC7 /* Everyplay.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Everyplay.bundle; path = "../everyplay-ios-sdk/Everyplay.bundle"; sourceTree = "<group>"; };
+		CC5B2CE416978B28007ECDC7 /* Everyplay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Everyplay.framework; path = "../everyplay-ios-sdk/Everyplay.framework"; sourceTree = "<group>"; };
+		CC5B2CFA16982A4B007ECDC7 /* loop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = loop.wav; path = EveryplayRecord/Resources/loop.wav; sourceTree = "<group>"; };
+		CC5B2CFC16982A4B007ECDC7 /* Shader_f.glsl */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = Shader_f.glsl; sourceTree = "<group>"; };
+		CC5B2CFD16982A4B007ECDC7 /* Shader_v.glsl */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = Shader_v.glsl; sourceTree = "<group>"; };
+		CC8261EA169AC1840061413E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		CCF7B3051699FB830006CC80 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		CCF7B3061699FB830006CC80 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		CCF7B3071699FB830006CC80 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		CCF7B3081699FB830006CC80 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CC5B2C7C16977AEF007ECDC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC5B2C8416977AEF007ECDC7 /* UIKit.framework in Frameworks */,
+				CC5B2C8616977AEF007ECDC7 /* Foundation.framework in Frameworks */,
+				CC5B2C8816977AEF007ECDC7 /* CoreGraphics.framework in Frameworks */,
+				CC8261EB169AC1840061413E /* AdSupport.framework in Frameworks */,
+				CC5B2CD316978AA7007ECDC7 /* AssetsLibrary.framework in Frameworks */,
+				CC5B2CD416978AA7007ECDC7 /* AudioToolbox.framework in Frameworks */,
+				CC5B2CD516978AA7007ECDC7 /* AVFoundation.framework in Frameworks */,
+				CC5B2CD816978AA7007ECDC7 /* CoreImage.framework in Frameworks */,
+				CC5B2CD916978AA7007ECDC7 /* CoreMedia.framework in Frameworks */,
+				CC5B2CDA16978AA7007ECDC7 /* CoreVideo.framework in Frameworks */,
+				CC5B2CDC16978AA7007ECDC7 /* MessageUI.framework in Frameworks */,
+				CC5B2CDD16978AA7007ECDC7 /* MobileCoreServices.framework in Frameworks */,
+				CC5B2CDE16978AA7007ECDC7 /* OpenGLES.framework in Frameworks */,
+				CC5B2CDF16978AA7007ECDC7 /* QuartzCore.framework in Frameworks */,
+				CC5B2CE016978AA7007ECDC7 /* Security.framework in Frameworks */,
+				CC5B2CE116978AA7007ECDC7 /* StoreKit.framework in Frameworks */,
+				CC5B2CE216978AA7007ECDC7 /* SystemConfiguration.framework in Frameworks */,
+				CC5B2CE616978B28007ECDC7 /* Everyplay.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CC5B2C7416977AEF007ECDC7 = {
+			isa = PBXGroup;
+			children = (
+				CC5B2CF916982A3F007ECDC7 /* Resources */,
+				CC5B2C8916977AEF007ECDC7 /* EveryplayRecord */,
+				CC5B2D27169875AF007ECDC7 /* Everyplay */,
+				CC5B2C8216977AEF007ECDC7 /* Frameworks */,
+				CC5B2C8016977AEF007ECDC7 /* Products */,
+			);
+			indentWidth = 4;
+			sourceTree = "<group>";
+			tabWidth = 4;
+		};
+		CC5B2C8016977AEF007ECDC7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CC5B2C7F16977AEF007ECDC7 /* EveryplayRecord.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CC5B2C8216977AEF007ECDC7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC5B2C8316977AEF007ECDC7 /* UIKit.framework */,
+				CC5B2C8516977AEF007ECDC7 /* Foundation.framework */,
+				CC5B2C8716977AEF007ECDC7 /* CoreGraphics.framework */,
+				CC8261EA169AC1840061413E /* AdSupport.framework */,
+				CC5B2CC216978AA6007ECDC7 /* AssetsLibrary.framework */,
+				CC5B2CC316978AA6007ECDC7 /* AudioToolbox.framework */,
+				CC5B2CC416978AA7007ECDC7 /* AVFoundation.framework */,
+				CC5B2CC716978AA7007ECDC7 /* CoreImage.framework */,
+				CC5B2CC816978AA7007ECDC7 /* CoreMedia.framework */,
+				CC5B2CC916978AA7007ECDC7 /* CoreVideo.framework */,
+				CC5B2CCB16978AA7007ECDC7 /* MessageUI.framework */,
+				CC5B2CCC16978AA7007ECDC7 /* MobileCoreServices.framework */,
+				CC5B2CCD16978AA7007ECDC7 /* OpenGLES.framework */,
+				CC5B2CCE16978AA7007ECDC7 /* QuartzCore.framework */,
+				CC5B2CCF16978AA7007ECDC7 /* Security.framework */,
+				CC5B2CD016978AA7007ECDC7 /* StoreKit.framework */,
+				CC5B2CD116978AA7007ECDC7 /* SystemConfiguration.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC5B2C8916977AEF007ECDC7 /* EveryplayRecord */ = {
+			isa = PBXGroup;
+			children = (
+				CC5B2CBC16978982007ECDC7 /* Config.h */,
+				CC5B2CBD16978982007ECDC7 /* EAGLView.h */,
+				CC5B2CBE16978982007ECDC7 /* EAGLView.m */,
+				CC5B2C9216977AEF007ECDC7 /* ERAppDelegate.h */,
+				CC5B2C9316977AEF007ECDC7 /* ERAppDelegate.m */,
+				CC5B2C9B16977AEF007ECDC7 /* ERViewController.h */,
+				CC5B2C9C16977AEF007ECDC7 /* ERViewController.mm */,
+				CC5B2CA116977AEF007ECDC7 /* ERViewController_iPad.xib */,
+				CC5B2C9E16977AEF007ECDC7 /* ERViewController_iPhone.xib */,
+				CC5B2C8A16977AEF007ECDC7 /* Supporting Files */,
+			);
+			path = EveryplayRecord;
+			sourceTree = "<group>";
+		};
+		CC5B2C8A16977AEF007ECDC7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CC5B2C8B16977AEF007ECDC7 /* EveryplayRecord-Info.plist */,
+				CC5B2C9116977AEF007ECDC7 /* EveryplayRecord-Prefix.pch */,
+				CCF7B3051699FB830006CC80 /* Icon-72.png */,
+				CCF7B3061699FB830006CC80 /* Icon-72@2x.png */,
+				CCF7B3071699FB830006CC80 /* Icon.png */,
+				CCF7B3081699FB830006CC80 /* Icon@2x.png */,
+				CC5B2C8C16977AEF007ECDC7 /* InfoPlist.strings */,
+				CC5B2C8F16977AEF007ECDC7 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CC5B2CF916982A3F007ECDC7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CC5B2CFA16982A4B007ECDC7 /* loop.wav */,
+				CC5B2CFB16982A4B007ECDC7 /* Shaders */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		CC5B2CFB16982A4B007ECDC7 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				CC5B2CFC16982A4B007ECDC7 /* Shader_f.glsl */,
+				CC5B2CFD16982A4B007ECDC7 /* Shader_v.glsl */,
+			);
+			name = Shaders;
+			path = EveryplayRecord/Resources/Shaders;
+			sourceTree = "<group>";
+		};
+		CC5B2D27169875AF007ECDC7 /* Everyplay */ = {
+			isa = PBXGroup;
+			children = (
+				CC5B2CE316978B28007ECDC7 /* Everyplay.bundle */,
+				CC5B2CE416978B28007ECDC7 /* Everyplay.framework */,
+			);
+			name = Everyplay;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CC5B2C7E16977AEF007ECDC7 /* EveryplayRecord */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC5B2CA616977AEF007ECDC7 /* Build configuration list for PBXNativeTarget "EveryplayRecord" */;
+			buildPhases = (
+				CC5B2C7B16977AEF007ECDC7 /* Sources */,
+				CC5B2C7C16977AEF007ECDC7 /* Frameworks */,
+				CC5B2C7D16977AEF007ECDC7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EveryplayRecord;
+			productName = EveryplayRecord;
+			productReference = CC5B2C7F16977AEF007ECDC7 /* EveryplayRecord.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CC5B2C7616977AEF007ECDC7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ER;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = Everyplay;
+			};
+			buildConfigurationList = CC5B2C7916977AEF007ECDC7 /* Build configuration list for PBXProject "EveryplayRecord" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CC5B2C7416977AEF007ECDC7;
+			productRefGroup = CC5B2C8016977AEF007ECDC7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CC5B2C7E16977AEF007ECDC7 /* EveryplayRecord */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CC5B2C7D16977AEF007ECDC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC5B2C8E16977AEF007ECDC7 /* InfoPlist.strings in Resources */,
+				CC5B2CA016977AEF007ECDC7 /* ERViewController_iPhone.xib in Resources */,
+				CC5B2CA316977AEF007ECDC7 /* ERViewController_iPad.xib in Resources */,
+				CC5B2CE516978B28007ECDC7 /* Everyplay.bundle in Resources */,
+				CC5B2CFE16982A4B007ECDC7 /* loop.wav in Resources */,
+				CC5B2D0116982A84007ECDC7 /* Shader_f.glsl in Resources */,
+				CC5B2D0216982A8A007ECDC7 /* Shader_v.glsl in Resources */,
+				CCF7B3091699FB830006CC80 /* Icon-72.png in Resources */,
+				CCF7B30A1699FB830006CC80 /* Icon-72@2x.png in Resources */,
+				CCF7B30B1699FB830006CC80 /* Icon.png in Resources */,
+				CCF7B30C1699FB830006CC80 /* Icon@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CC5B2C7B16977AEF007ECDC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC5B2C9016977AEF007ECDC7 /* main.m in Sources */,
+				CC5B2C9416977AEF007ECDC7 /* ERAppDelegate.m in Sources */,
+				CC5B2C9D16977AEF007ECDC7 /* ERViewController.mm in Sources */,
+				CC5B2CBF16978982007ECDC7 /* EAGLView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CC5B2C8C16977AEF007ECDC7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CC5B2C8D16977AEF007ECDC7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CC5B2C9E16977AEF007ECDC7 /* ERViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CC5B2C9F16977AEF007ECDC7 /* en */,
+			);
+			name = ERViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		CC5B2CA116977AEF007ECDC7 /* ERViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CC5B2CA216977AEF007ECDC7 /* en */,
+			);
+			name = ERViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CC5B2CA416977AEF007ECDC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CC5B2CA516977AEF007ECDC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CC5B2CA716977AEF007ECDC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LIBRARY = "libstdc++";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../everyplay-ios-sdk\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EveryplayRecord/EveryplayRecord-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/EveryplayRecord/fmod/api/inc";
+				INFOPLIST_FILE = "EveryplayRecord/EveryplayRecord-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/EveryplayRecord/fmod/api/lib";
+				OTHER_LDFLAGS = "-lfmodexL_$PLATFORM_NAME";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CC5B2CA816977AEF007ECDC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LIBRARY = "libstdc++";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../everyplay-ios-sdk\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EveryplayRecord/EveryplayRecord-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/EveryplayRecord/fmod/api/inc";
+				INFOPLIST_FILE = "EveryplayRecord/EveryplayRecord-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/EveryplayRecord/fmod/api/lib";
+				OTHER_LDFLAGS = "-lfmodexL_$PLATFORM_NAME";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CC5B2C7916977AEF007ECDC7 /* Build configuration list for PBXProject "EveryplayRecord" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC5B2CA416977AEF007ECDC7 /* Debug */,
+				CC5B2CA516977AEF007ECDC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC5B2CA616977AEF007ECDC7 /* Build configuration list for PBXNativeTarget "EveryplayRecord" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC5B2CA716977AEF007ECDC7 /* Debug */,
+				CC5B2CA816977AEF007ECDC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CC5B2C7616977AEF007ECDC7 /* Project object */;
+}
