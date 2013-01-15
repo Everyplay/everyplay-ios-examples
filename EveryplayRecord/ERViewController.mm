@@ -471,7 +471,6 @@ enum {
     [everyplayButton setTitle: @"Everyplay" forState: UIControlStateNormal];
     [everyplayButton setTitleColor: [UIColor blackColor] forState: UIControlStateNormal];
     [everyplayButton setTitleColor: [UIColor yellowColor] forState: UIControlStateHighlighted];
-    //[launchButton setBackgroundColor:[UIColor whiteColor]];
 
     [everyplayButton addTarget:self action:@selector(everyplayButtonPressed:)
               forControlEvents:UIControlEventTouchUpInside];

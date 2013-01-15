@@ -19,10 +19,6 @@
 #import "ERViewController.h"
 #import "Config.h"
 
-#if USE_EVERYPLAY
-#import <Everyplay/Everyplay.h>
-#endif
-
 @implementation ERAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

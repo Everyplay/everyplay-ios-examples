@@ -18,6 +18,11 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "EAGLView.h"
+#import "Config.h"
+
+#if USE_EVERYPLAY
+#import <Everyplay/Everyplay.h>
+#endif
 
 // Conditional debug
 #if DEBUG
