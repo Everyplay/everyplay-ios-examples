@@ -17,6 +17,11 @@ where you'll place `everyplay-ios-examples`. No git submodule usage planned.
     - Supports OpenGL ES1/ES2 and MSAA anti-aliased rendering
     - Audio engine used : FMOD Sound System by Firelight Technologies
 
+- EveryplayTutorial
+    - Same as EveryplayRecord but without Everyplay functionality built-in, used
+      for online tutorial available at https://developers.everyplay.com/
+    - Audio engine used : FMOD Sound System by Firelight Technologies
+
 ## Everyplay API:
 
 - EveryplayLogin
