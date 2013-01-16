@@ -515,14 +515,6 @@ enum {
     [[Everyplay sharedInstance] showEveryplay];
 }
 
-- (void)updateRecordButtonState:(id)sender {
-    if ([[[Everyplay sharedInstance] capture] isRecording]) {
-        [sender setTitle:@"Start Recording" forState:UIControlStateNormal];
-    } else {
-        [sender setTitle:@"Stop Recording" forState:UIControlStateNormal];
-    }
-}
-
 - (IBAction)recordButtonPressed:(id)sender {
     if ([[[Everyplay sharedInstance] capture] isRecording]) {
         [[[Everyplay sharedInstance] capture] stopRecording];
