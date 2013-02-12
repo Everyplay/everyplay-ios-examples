@@ -20,7 +20,7 @@
 #if USE_AUDIO
 #import "fmod.hpp"
 #import "fmod_errors.h"
-#import "fmod/api/inc/fmodiphone.h"
+#import "fmodiphone.h"
 
 FMOD::System *fmod_system;
 FMOD::Sound *sound1;

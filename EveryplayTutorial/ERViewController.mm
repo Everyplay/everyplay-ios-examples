@@ -20,6 +20,7 @@
 #if USE_AUDIO
 #import "fmod.hpp"
 #import "fmod_errors.h"
+#import "fmodiphone.h"
 
 FMOD::System *fmod_system;
 FMOD::Sound *sound1;
@@ -129,7 +130,12 @@ enum {
 
     result = fmod_system->setSoftwareFormat(44100, FMOD_SOUND_FORMAT_PCM16, 1, 0, FMOD_DSP_RESAMPLER_LINEAR);
 
-    result = fmod_system->init(32, FMOD_INIT_NORMAL, NULL);
+    FMOD_IPHONE_EXTRADRIVERDATA extradriverdata;
+    memset(&extradriverdata, 0, sizeof(FMOD_IPHONE_EXTRADRIVERDATA));
+    extradriverdata.sessionCategory = FMOD_IPHONE_SESSIONCATEGORY_AMBIENTSOUND;
+    extradriverdata.forceMixWithOthers = false;
+
+    result = fmod_system->init(32, FMOD_INIT_NORMAL, &extradriverdata);
 
     [[NSString stringWithFormat:@"%@/loop.wav", [[NSBundle mainBundle] resourcePath]] getCString:buffer maxLength:200 encoding:NSASCIIStringEncoding];
     result = fmod_system->createSound(buffer, FMOD_SOFTWARE | FMOD_LOOP_NORMAL, NULL, &sound1);
