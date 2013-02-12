@@ -37,7 +37,7 @@
 - (id)initWithCoder:(NSCoder*)coder
 {
     self = [super initWithCoder:coder];
-	if (self) {
+    if (self) {
         CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
 
         eaglLayer.contentsScale = [[UIScreen mainScreen] scale];
@@ -76,9 +76,9 @@
 
 - (GLfloat)aspect
 {
-	if (!framebufferHeight) return 0.0;
+    if (!framebufferHeight) return 0.0;
 
-	return ((GLfloat) framebufferWidth) / ((GLfloat) framebufferHeight);
+    return ((GLfloat) framebufferWidth) / ((GLfloat) framebufferHeight);
 }
 
 - (void)createFramebuffer

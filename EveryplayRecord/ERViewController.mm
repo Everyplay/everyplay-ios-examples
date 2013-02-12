@@ -20,6 +20,7 @@
 #if USE_AUDIO
 #import "fmod.hpp"
 #import "fmod_errors.h"
+#import "fmod/api/inc/fmodiphone.h"
 
 FMOD::System *fmod_system;
 FMOD::Sound *sound1;
@@ -48,6 +49,8 @@ enum {
 @property (nonatomic, retain) IBOutlet UIButton *recordButton;
 @property (nonatomic, retain) IBOutlet UIButton *videoButton;
 @property (nonatomic, retain) IBOutlet UIButton *loginButton;
+@property (nonatomic, retain) IBOutlet UIButton *hudButton;
+@property (nonatomic) BOOL hudEnabled;
 
 - (BOOL)loadShaders;
 - (BOOL)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file;
@@ -64,6 +67,8 @@ enum {
 @synthesize recordButton;
 @synthesize videoButton;
 @synthesize loginButton;
+@synthesize hudButton;
+@synthesize hudEnabled;
 
 - (void)dealloc
 {
@@ -108,7 +113,7 @@ enum {
         NSLog(@"Failed to set ES context current");
     }
 
-	self.context = aContext;
+    self.context = aContext;
 
     [(EAGLView *)self.view setContext:context];
     [(EAGLView *)self.view setFramebuffer];
@@ -139,7 +144,12 @@ enum {
 
     result = fmod_system->setSoftwareFormat(44100, FMOD_SOUND_FORMAT_PCM16, 1, 0, FMOD_DSP_RESAMPLER_LINEAR);
 
-    result = fmod_system->init(32, FMOD_INIT_NORMAL, NULL);
+    FMOD_IPHONE_EXTRADRIVERDATA extradriverdata;
+    memset(&extradriverdata, 0, sizeof(FMOD_IPHONE_EXTRADRIVERDATA));
+    extradriverdata.sessionCategory = FMOD_IPHONE_SESSIONCATEGORY_AMBIENTSOUND;
+    extradriverdata.forceMixWithOthers = false;
+
+    result = fmod_system->init(32, FMOD_INIT_NORMAL, &extradriverdata);
 
     [[NSString stringWithFormat:@"%@/loop.wav", [[NSBundle mainBundle] resourcePath]] getCString:buffer maxLength:200 encoding:NSASCIIStringEncoding];
     result = fmod_system->createSound(buffer, FMOD_SOFTWARE | FMOD_LOOP_NORMAL, NULL, &sound1);
@@ -155,7 +165,7 @@ enum {
 
 - (void)viewDidUnload
 {
-	[super viewDidUnload];
+    [super viewDidUnload];
 
     if (program) {
         glDeleteProgram(program);
@@ -166,7 +176,7 @@ enum {
     if ([EAGLContext currentContext] == context) {
         [EAGLContext setCurrentContext:nil];
     }
-	self.context = nil;
+    self.context = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -183,9 +193,9 @@ enum {
 - (void)setAnimationFrameInterval:(NSInteger)frameInterval
 {
     /*
-	 Frame interval defines how many display frames must pass between each time the display link fires.
-	 The display link will only fire 30 times a second when the frame internal is two on a display that refreshes 60 times a second. The default frame interval setting of one will fire 60 times a second when the display refreshes at 60 times a second. A frame interval setting of less than one results in undefined behavior.
-	 */
+     Frame interval defines how many display frames must pass between each time the display link fires.
+     The display link will only fire 30 times a second when the frame internal is two on a display that refreshes 60 times a second. The default frame interval setting of one will fire 60 times a second when the display refreshes at 60 times a second. A frame interval setting of less than one results in undefined behavior.
+     */
     if (frameInterval >= 1) {
         animationFrameInterval = frameInterval;
 
@@ -237,7 +247,7 @@ enum {
         255,   0, 255, 255,
     };
 
-	static float transY = 0.0f;
+    static float transY = 0.0f;
 
     glClearColor(0.45f, 0.45f, 0.45f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -264,11 +274,15 @@ enum {
             return;
         }
 #endif
-		// Render original demo
-		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+        // Render original demo
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
-		glUniform1f(uniforms[UNIFORM_TRANSLATE], (GLfloat)transY + 3.1415926536f);
-		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+        if (self.hudEnabled == NO) {
+            [[[Everyplay sharedInstance] capture] snapshotRenderbuffer];
+        }
+
+        glUniform1f(uniforms[UNIFORM_TRANSLATE], (GLfloat)transY + 3.1415926536f);
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     } else {
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
@@ -283,6 +297,10 @@ enum {
         glEnableClientState(GL_COLOR_ARRAY);
 
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+
+        if (self.hudEnabled == NO) {
+            [[[Everyplay sharedInstance] capture] snapshotRenderbuffer];
+        }
 
         float transY2 = transY + 3.1415926536f;
 
@@ -444,11 +462,11 @@ enum {
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+    return YES;
 }
 
 - (NSUInteger) supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskPortraitUpsideDown;
+    return UIInterfaceOrientationMaskAll;
 }
 
 - (BOOL) shouldAutorotate {
@@ -509,6 +527,21 @@ enum {
           forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview: loginButton];
     [self updateLoginButtonState:loginButton];
+
+    buttonY = buttonY + buttonHeight + padding;
+    hudButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    hudButton.frame = CGRectMake(buttonX, buttonY, buttonWidth, buttonHeight);
+    [hudButton setTitle: @"HUD record off" forState: UIControlStateNormal];
+    [hudButton setTitleColor: [UIColor blackColor] forState: UIControlStateNormal];
+    [hudButton setTitleColor: [UIColor yellowColor] forState: UIControlStateHighlighted];
+
+    [hudButton addTarget:self action:@selector(hudButtonPressed:)
+          forControlEvents:UIControlEventTouchUpInside];
+
+    hudButton.hidden = YES;
+    self.hudEnabled = YES;
+
+    [self.view addSubview: hudButton];
 }
 
 - (IBAction)everyplayButtonPressed:(id)sender {
@@ -571,6 +604,16 @@ enum {
     }
 }
 
+- (IBAction)hudButtonPressed:(id)sender {
+    if (self.hudEnabled) {
+        [hudButton setTitle:@"HUD record on" forState:UIControlStateNormal];
+        self.hudEnabled = NO;
+    } else {
+        [hudButton setTitle:@"HUD record off" forState:UIControlStateNormal];
+        self.hudEnabled = YES;
+    }
+}
+
 #pragma mark - Delegate Methods
 - (void)everyplayShown {
     ELOG;
@@ -593,12 +636,14 @@ enum {
 - (void)everyplayRecordingStarted {
     ELOG;
 
+    hudButton.hidden = NO;
     [recordButton setTitle:@"Stop Recording" forState:UIControlStateNormal];
 }
 
 - (void)everyplayRecordingStopped {
     ELOG;
 
+    hudButton.hidden = YES;
     [recordButton setTitle:@"Start Recording" forState:UIControlStateNormal];
     [videoButton setTitle: @"Play Last Recording" forState: UIControlStateNormal];
 
