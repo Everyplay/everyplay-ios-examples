@@ -98,7 +98,7 @@ enum {
         NSLog(@"Failed to set ES context current");
     }
 
-	self.context = aContext;
+    self.context = aContext;
 
     [(EAGLView *)self.view setContext:context];
     [(EAGLView *)self.view setFramebuffer];
@@ -142,7 +142,7 @@ enum {
 
 - (void)viewDidUnload
 {
-	[super viewDidUnload];
+    [super viewDidUnload];
 
     if (program) {
         glDeleteProgram(program);
@@ -153,7 +153,7 @@ enum {
     if ([EAGLContext currentContext] == context) {
         [EAGLContext setCurrentContext:nil];
     }
-	self.context = nil;
+    self.context = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -170,9 +170,9 @@ enum {
 - (void)setAnimationFrameInterval:(NSInteger)frameInterval
 {
     /*
-	 Frame interval defines how many display frames must pass between each time the display link fires.
-	 The display link will only fire 30 times a second when the frame internal is two on a display that refreshes 60 times a second. The default frame interval setting of one will fire 60 times a second when the display refreshes at 60 times a second. A frame interval setting of less than one results in undefined behavior.
-	 */
+     Frame interval defines how many display frames must pass between each time the display link fires.
+     The display link will only fire 30 times a second when the frame internal is two on a display that refreshes 60 times a second. The default frame interval setting of one will fire 60 times a second when the display refreshes at 60 times a second. A frame interval setting of less than one results in undefined behavior.
+     */
     if (frameInterval >= 1) {
         animationFrameInterval = frameInterval;
 
@@ -224,7 +224,7 @@ enum {
         255,   0, 255, 255,
     };
 
-	static float transY = 0.0f;
+    static float transY = 0.0f;
 
     glClearColor(0.45f, 0.45f, 0.45f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -251,11 +251,11 @@ enum {
             return;
         }
 #endif
-		// Render original demo
-		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+        // Render original demo
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
-		glUniform1f(uniforms[UNIFORM_TRANSLATE], (GLfloat)transY + 3.1415926536f);
-		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+        glUniform1f(uniforms[UNIFORM_TRANSLATE], (GLfloat)transY + 3.1415926536f);
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     } else {
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
@@ -431,11 +431,11 @@ enum {
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+    return YES;
 }
 
 - (NSUInteger) supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskPortraitUpsideDown;
+    return UIInterfaceOrientationMaskAll;
 }
 
 - (BOOL) shouldAutorotate {
