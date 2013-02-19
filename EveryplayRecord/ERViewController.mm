@@ -278,7 +278,9 @@ enum {
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
         if (self.hudEnabled == NO) {
+#if USE_EVERYPLAY
             [[[Everyplay sharedInstance] capture] snapshotRenderbuffer];
+#endif
         }
 
         glUniform1f(uniforms[UNIFORM_TRANSLATE], (GLfloat)transY + 3.1415926536f);
@@ -299,7 +301,9 @@ enum {
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
         if (self.hudEnabled == NO) {
+#if USE_EVERYPLAY
             [[[Everyplay sharedInstance] capture] snapshotRenderbuffer];
+#endif
         }
 
         float transY2 = transY + 3.1415926536f;
