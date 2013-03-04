@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC125F0C16E4AE6F00F76983 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC125F0B16E4AE6F00F76983 /* Twitter.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CC125F0E16E4AE7200F76983 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC125F0D16E4AE7200F76983 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CC4C5BA81695D5DE0082B627 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BA71695D5DE0082B627 /* UIKit.framework */; };
 		CC4C5BAA1695D5DE0082B627 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BA91695D5DE0082B627 /* Foundation.framework */; };
 		CC4C5BAC1695D5DE0082B627 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4C5BAB1695D5DE0082B627 /* CoreGraphics.framework */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC125F0B16E4AE6F00F76983 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		CC125F0D16E4AE7200F76983 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		CC4C5BA31695D5DE0082B627 /* EveryplayVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveryplayVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC4C5BA71695D5DE0082B627 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CC4C5BA91695D5DE0082B627 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -91,8 +95,10 @@
 				CC4C5BDC1695D9FD0082B627 /* OpenGLES.framework in Frameworks */,
 				CC4C5BDD1695D9FD0082B627 /* QuartzCore.framework in Frameworks */,
 				CC4C5BE71695DA7B0082B627 /* Security.framework in Frameworks */,
+				CC125F0E16E4AE7200F76983 /* Social.framework in Frameworks */,
 				CC4C5BDE1695D9FD0082B627 /* StoreKit.framework in Frameworks */,
 				CC4C5BDF1695D9FD0082B627 /* SystemConfiguration.framework in Frameworks */,
+				CC125F0C16E4AE6F00F76983 /* Twitter.framework in Frameworks */,
 				CC4C5BCF1695D9920082B627 /* Everyplay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,8 +144,10 @@
 				CC4C5BD41695D9FD0082B627 /* OpenGLES.framework */,
 				CC4C5BD51695D9FD0082B627 /* QuartzCore.framework */,
 				CC4C5BE61695DA7A0082B627 /* Security.framework */,
+				CC125F0D16E4AE7200F76983 /* Social.framework */,
 				CC4C5BD61695D9FD0082B627 /* StoreKit.framework */,
 				CC4C5BD71695D9FD0082B627 /* SystemConfiguration.framework */,
+				CC125F0B16E4AE6F00F76983 /* Twitter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
