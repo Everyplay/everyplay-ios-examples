@@ -18,6 +18,7 @@
 #import "ERViewController.h"
 
 #if USE_AUDIO
+#if USE_FMOD
 #import "fmod.hpp"
 #import "fmod_errors.h"
 #import "fmodiphone.h"
@@ -25,6 +26,7 @@
 FMOD::System *fmod_system;
 FMOD::Sound *sound1;
 FMOD::Channel *channel;
+#endif
 #endif
 
 // Uniform index.
@@ -52,6 +54,26 @@ enum {
 @property (nonatomic, retain) IBOutlet UIButton *hudButton;
 @property (nonatomic) BOOL hudEnabled;
 
+@property (nonatomic, retain) IBOutlet UIButton *play1Button;
+@property (nonatomic, retain) IBOutlet UIButton *unload1Button;
+@property (nonatomic, retain) IBOutlet UIButton *play2Button;
+@property (nonatomic, retain) IBOutlet UIButton *unload2Button;
+@property (nonatomic, retain) IBOutlet UIButton *pauseButton;
+@property (nonatomic, retain) IBOutlet UIButton *resumeButton;
+@property (nonatomic, retain) IBOutlet UIButton *rewindButton;
+@property (nonatomic, retain) IBOutlet UIButton *stopButton;
+
+@property (nonatomic, retain) IBOutlet UIButton *effect1Button;
+@property (nonatomic, retain) IBOutlet UIButton *effect2Button;
+
+@property (nonatomic) NSString *song1;
+@property (nonatomic) NSString *song2;
+
+@property (nonatomic) NSString *effect1;
+@property (nonatomic) float effect1Pitch;
+@property (nonatomic) NSString *effect2;
+@property (nonatomic) float effect2Pitch;
+
 - (BOOL)loadShaders;
 - (BOOL)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file;
 - (BOOL)linkProgram:(GLuint)prog;
@@ -62,13 +84,6 @@ enum {
 @synthesize animating;
 @synthesize context;
 @synthesize displayLink;
-
-@synthesize everyplayButton;
-@synthesize recordButton;
-@synthesize videoButton;
-@synthesize loginButton;
-@synthesize hudButton;
-@synthesize hudEnabled;
 
 - (void)dealloc
 {
@@ -128,7 +143,19 @@ enum {
 
     // [Everyplay sharedInstance].flowControl = EveryplayFlowReturnsToVideoPlayer;
 
+    _song1 = [NSString stringWithFormat:@"%@/loop.wav", [[NSBundle mainBundle] resourcePath]];
+    _song2 = [NSString stringWithFormat:@"%@/loop2.wav", [[NSBundle mainBundle] resourcePath]];
+
+    _effect1 = [NSString stringWithFormat:@"%@/Pew.caf", [[NSBundle mainBundle] resourcePath]];
+    _effect2 = [NSString stringWithFormat:@"%@/Pow.caf", [[NSBundle mainBundle] resourcePath]];
+
+    _effect1Pitch = 1.0f;
+    _effect2Pitch = 1.0f;
+
+    self.hudEnabled = YES;
+
 #if USE_AUDIO
+#if USE_FMOD
     FMOD_RESULT   result        = FMOD_OK;
     char          buffer[200]   = {0};
     unsigned int  version       = 0;
@@ -151,10 +178,11 @@ enum {
 
     result = fmod_system->init(32, FMOD_INIT_NORMAL, &extradriverdata);
 
-    [[NSString stringWithFormat:@"%@/loop.wav", [[NSBundle mainBundle] resourcePath]] getCString:buffer maxLength:200 encoding:NSASCIIStringEncoding];
+    [_song1 getCString:buffer maxLength:200 encoding:NSASCIIStringEncoding];
     result = fmod_system->createSound(buffer, FMOD_SOFTWARE | FMOD_LOOP_NORMAL, NULL, &sound1);
 
     result = fmod_system->playSound(FMOD_CHANNEL_FREE, sound1, false, &channel);
+#endif
 #endif
 
     // Do any additional setup after loading the view, typically from a nib.
@@ -481,6 +509,15 @@ enum {
 
 #if USE_EVERYPLAY
 
+#define ADD_BUTTON(x, title, selector) \
+  x = [UIButton buttonWithType:UIButtonTypeRoundedRect]; \
+  x.frame = CGRectMake(buttonX, buttonY, buttonWidth, buttonHeight); \
+  [x setTitle:title forState: UIControlStateNormal]; \
+  [x setTitleColor:[UIColor blackColor] forState:UIControlStateNormal]; \
+  [x setTitleColor:[UIColor yellowColor] forState:UIControlStateHighlighted]; \
+  [x addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside]; \
+  [self.view addSubview:x];
+
 - (void)createButtons {
     int buttonX = 10;
     int buttonY = 10;
@@ -488,64 +525,60 @@ enum {
     int buttonHeight = 40;
     int padding = 8;
 
-    everyplayButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    everyplayButton.frame = CGRectMake(buttonX, buttonY, buttonWidth, buttonHeight);
-    [everyplayButton setTitle: @"Everyplay" forState: UIControlStateNormal];
-    [everyplayButton setTitleColor: [UIColor blackColor] forState: UIControlStateNormal];
-    [everyplayButton setTitleColor: [UIColor yellowColor] forState: UIControlStateHighlighted];
-
-    [everyplayButton addTarget:self action:@selector(everyplayButtonPressed:)
-              forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview: everyplayButton];
+#if !USE_EVERYPLAY_AUDIO_BOARD
+    ADD_BUTTON(_everyplayButton, @"Everyplay", @selector(everyplayButtonPressed:));
 
     buttonY = buttonY + buttonHeight + padding;
-    recordButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    recordButton.frame = CGRectMake(buttonX, buttonY, buttonWidth, buttonHeight);
-    [recordButton setTitle: @"Start Recording" forState: UIControlStateNormal];
-    [recordButton setTitleColor: [UIColor blackColor] forState: UIControlStateNormal];
-    [recordButton setTitleColor: [UIColor yellowColor] forState: UIControlStateHighlighted];
-
-    [recordButton addTarget:self action:@selector(recordButtonPressed:)
-           forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview: recordButton];
+    ADD_BUTTON(_recordButton, @"Start recording", @selector(recordButtonPressed:));
 
     buttonY = buttonY + buttonHeight + padding;
-    videoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    videoButton.frame = CGRectMake(buttonX, buttonY, buttonWidth, buttonHeight);
-    [videoButton setTitle: @"Test Video Playback" forState: UIControlStateNormal];
-    [videoButton setTitleColor: [UIColor blackColor] forState: UIControlStateNormal];
-    [videoButton setTitleColor: [UIColor yellowColor] forState: UIControlStateHighlighted];
-
-    [videoButton addTarget:self action:@selector(videoButtonPressed:)
-          forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview: videoButton];
+    ADD_BUTTON(_videoButton, @"Test Video Playback", @selector(videoButtonPressed:));
 
     buttonY = buttonY + buttonHeight + padding;
-    loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    loginButton.frame = CGRectMake(buttonX, buttonY, buttonWidth, buttonHeight);
-    [loginButton setTitle: @"Login" forState: UIControlStateNormal];
-    [loginButton setTitleColor: [UIColor blackColor] forState: UIControlStateNormal];
-    [loginButton setTitleColor: [UIColor yellowColor] forState: UIControlStateHighlighted];
-
-    [loginButton addTarget:self action:@selector(loginButtonPressed:)
-          forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview: loginButton];
-    [self updateLoginButtonState:loginButton];
+    ADD_BUTTON(_loginButton, @"Login", @selector(loginButtonPressed:));
+    [self updateLoginButtonState:_loginButton];
 
     buttonY = buttonY + buttonHeight + padding;
-    hudButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    hudButton.frame = CGRectMake(buttonX, buttonY, buttonWidth, buttonHeight);
-    [hudButton setTitle: @"HUD record off" forState: UIControlStateNormal];
-    [hudButton setTitleColor: [UIColor blackColor] forState: UIControlStateNormal];
-    [hudButton setTitleColor: [UIColor yellowColor] forState: UIControlStateHighlighted];
+    ADD_BUTTON(_hudButton, @"HUD record off", @selector(hudButtonPressed:));
+    _hudButton.hidden = NO;
+#else
+    ADD_BUTTON(_play1Button, @"Play song #1", @selector(play1ButtonPressed:));
 
-    [hudButton addTarget:self action:@selector(hudButtonPressed:)
-          forControlEvents:UIControlEventTouchUpInside];
+    buttonY = buttonY + buttonHeight + padding;
+    ADD_BUTTON(_unload1Button, @"Unload song #1", @selector(unload1ButtonPressed:));
 
-    hudButton.hidden = YES;
-    self.hudEnabled = YES;
+    buttonY = buttonY + buttonHeight + padding;
+    ADD_BUTTON(_pauseButton, @"Pause song", @selector(pauseButtonPressed:));
 
-    [self.view addSubview: hudButton];
+    buttonY = buttonY + buttonHeight + padding;
+    ADD_BUTTON(_resumeButton, @"Resume song", @selector(resumeButtonPressed:));
+
+    buttonY = buttonY + buttonHeight + padding;
+    ADD_BUTTON(_rewindButton, @"Rewind song", @selector(rewindButtonPressed:));
+
+    buttonY = buttonY + buttonHeight + padding;
+    ADD_BUTTON(_stopButton, @"Stop song", @selector(stopButtonPressed:));
+
+    buttonY = 10;
+    buttonX = buttonX + buttonWidth + padding;
+
+    ADD_BUTTON(_play2Button, @"Play song #2", @selector(play2ButtonPressed:));
+
+    buttonY = buttonY + buttonHeight + padding;
+    ADD_BUTTON(_unload2Button, @"Unload song #2", @selector(unload2ButtonPressed:));
+
+    buttonY = buttonY + buttonHeight + padding;
+    ADD_BUTTON(_effect1Button, @"Effect #1", @selector(effect1ButtonPressed:));
+
+    buttonY = buttonY + buttonHeight + padding;
+    ADD_BUTTON(_effect2Button, @"Effect #2", @selector(effect2ButtonPressed:));
+
+    buttonY = buttonY + buttonHeight + padding;
+    ADD_BUTTON(_recordButton, @"Start recording", @selector(recordButtonPressed:));
+
+    buttonY = buttonY + buttonHeight + padding;
+    ADD_BUTTON(_videoButton, @"Test Video Playback", @selector(videoButtonPressed:));
+#endif
 }
 
 - (IBAction)everyplayButtonPressed:(id)sender {
@@ -610,12 +643,64 @@ enum {
 
 - (IBAction)hudButtonPressed:(id)sender {
     if (self.hudEnabled) {
-        [hudButton setTitle:@"HUD record on" forState:UIControlStateNormal];
+        [_hudButton setTitle:@"HUD record on" forState:UIControlStateNormal];
         self.hudEnabled = NO;
     } else {
-        [hudButton setTitle:@"HUD record off" forState:UIControlStateNormal];
+        [_hudButton setTitle:@"HUD record off" forState:UIControlStateNormal];
         self.hudEnabled = YES;
     }
+}
+
+#pragma mark - Audio testing
+
+- (void)play1ButtonPressed:(id)sender {
+    [[EveryplaySoundEngine sharedInstance] playBackgroundMusic:_song1 loop:YES];
+}
+
+- (void)unload1ButtonPressed:(id)sender {
+    [[EveryplaySoundEngine sharedInstance] unloadBackgroundMusic:_song1];
+}
+
+- (void)play2ButtonPressed:(id)sender {
+    [[EveryplaySoundEngine sharedInstance] playBackgroundMusic:_song2 loop:YES];
+}
+
+- (void)unload2ButtonPressed:(id)sender {
+    [[EveryplaySoundEngine sharedInstance] unloadBackgroundMusic:_song2];
+}
+
+- (void)pauseButtonPressed:(id)sender {
+    [[EveryplaySoundEngine sharedInstance] pauseBackgroundMusic];
+}
+
+- (void)resumeButtonPressed:(id)sender {
+    [[EveryplaySoundEngine sharedInstance] resumeBackgroundMusic];
+}
+
+- (void)rewindButtonPressed:(id)sender {
+    [[EveryplaySoundEngine sharedInstance] rewindBackgroundMusic];
+}
+
+- (void)stopButtonPressed:(id)sender {
+    [[EveryplaySoundEngine sharedInstance] stopBackgroundMusic];
+}
+
+- (void)effect1ButtonPressed:(id)sender {
+    _effect1Pitch += 0.1f;
+    if (_effect1Pitch >= 2.0) {
+        _effect1Pitch = 0.2f;
+    }
+
+    [[EveryplaySoundEngine sharedInstance] playEffect:_effect1 loop:NO pitch:_effect1Pitch pan:0.0f gain:1.0f];
+}
+
+- (void)effect2ButtonPressed:(id)sender {
+    _effect2Pitch += 0.1f;
+    if (_effect2Pitch >= 2.0) {
+        _effect2Pitch = 0.2f;
+    }
+
+    [[EveryplaySoundEngine sharedInstance] playEffect:_effect2 loop:NO pitch:_effect2Pitch pan:0.0f gain:1.0f];
 }
 
 #pragma mark - Delegate Methods
@@ -624,7 +709,10 @@ enum {
 
     [self stopAnimation];
 #if USE_AUDIO
+#if USE_FMOD
     channel->setMute(true);
+#endif
+    [[EveryplaySoundEngine sharedInstance] pauseBackgroundMusic];
 #endif
 }
 
@@ -633,23 +721,26 @@ enum {
 
     [self startAnimation];
 #if USE_AUDIO
+#if USE_FMOD
     channel->setMute(false);
+#endif
+    [[EveryplaySoundEngine sharedInstance] resumeBackgroundMusic];
 #endif
 }
 
 - (void)everyplayRecordingStarted {
     ELOG;
 
-    hudButton.hidden = NO;
-    [recordButton setTitle:@"Stop Recording" forState:UIControlStateNormal];
+    _hudButton.hidden = NO;
+    [_recordButton setTitle:@"Stop Recording" forState:UIControlStateNormal];
 }
 
 - (void)everyplayRecordingStopped {
     ELOG;
 
-    hudButton.hidden = YES;
-    [recordButton setTitle:@"Start Recording" forState:UIControlStateNormal];
-    [videoButton setTitle: @"Play Last Recording" forState: UIControlStateNormal];
+    _hudButton.hidden = YES;
+    [_recordButton setTitle:@"Start Recording" forState:UIControlStateNormal];
+    [_videoButton setTitle: @"Play Last Recording" forState: UIControlStateNormal];
 
     [[Everyplay sharedInstance] mergeSessionDeveloperData:@{@"testString" : @"hello"}];
     [[Everyplay sharedInstance] mergeSessionDeveloperData:@{@"testInteger" : @42}];

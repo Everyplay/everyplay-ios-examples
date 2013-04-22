@@ -150,14 +150,29 @@
         [everyplayCapture deleteFramebuffer];
 #endif
 
+        if (msaaFramebuffer) {
+            glDeleteFramebuffers(1, &msaaFramebuffer);
+            msaaFramebuffer = 0;
+        }
+
         if (defaultFramebuffer) {
             glDeleteFramebuffers(1, &defaultFramebuffer);
             defaultFramebuffer = 0;
         }
 
+        if (msaaColorRenderbuffer) {
+            glDeleteFramebuffers(1, &msaaColorRenderbuffer);
+            msaaColorRenderbuffer = 0;
+        }
+
         if (colorRenderbuffer) {
             glDeleteRenderbuffers(1, &colorRenderbuffer);
             colorRenderbuffer = 0;
+        }
+
+        if (msaaDepthRenderbuffer) {
+            glDeleteFramebuffers(1, &msaaDepthRenderbuffer);
+            msaaDepthRenderbuffer = 0;
         }
 
         if (depthRenderbuffer) {

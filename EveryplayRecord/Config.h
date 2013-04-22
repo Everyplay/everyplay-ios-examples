@@ -20,8 +20,12 @@
 
 #define USE_EVERYPLAY 1
 
+#define USE_EVERYPLAY_AUDIO_BOARD 0
+
 #define TEST_MANUAL_PAUSE_RESUME 0
 
 #define USE_AUDIO 1
+
+#define USE_FMOD 1
 
 #endif
