@@ -22,6 +22,9 @@ where you'll place `everyplay-ios-examples`. No git submodule usage planned.
       for online tutorial available at https://developers.everyplay.com/
     - Audio engine used : FMOD Sound System by Firelight Technologies
 
+- EveryplayGLKit
+    - Basic video recording test against GLKit and GLKViewController
+
 ## Everyplay API:
 
 - EveryplayLogin
