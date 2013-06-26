@@ -52,6 +52,7 @@ enum {
 @property (nonatomic, retain) IBOutlet UIButton *videoButton;
 @property (nonatomic, retain) IBOutlet UIButton *loginButton;
 @property (nonatomic, retain) IBOutlet UIButton *hudButton;
+@property (nonatomic, retain) IBOutlet UIButton *faceCamButton;
 @property (nonatomic) BOOL hudEnabled;
 
 @property (nonatomic, retain) IBOutlet UIButton *play1Button;
@@ -541,6 +542,9 @@ enum {
     buttonY = buttonY + buttonHeight + padding;
     ADD_BUTTON(_hudButton, @"HUD record off", @selector(hudButtonPressed:));
     _hudButton.hidden = NO;
+
+    buttonY = buttonY + buttonHeight + padding;
+    ADD_BUTTON(_faceCamButton, @"Start FaceCam session", @selector(faceCamButtonPressed:));
 #else
     ADD_BUTTON(_play1Button, @"Play song #1", @selector(play1ButtonPressed:));
 
@@ -651,6 +655,27 @@ enum {
     }
 }
 
+- (IBAction)faceCamButtonPressed:(id)sender {
+    EveryplayFaceCam *faceCam = [[Everyplay sharedInstance] faceCam];
+
+    if (faceCam) {
+        if (faceCam.isSessionRunning == NO) {
+            [faceCam setPreviewOrigin: EVERYPLAY_FACECAM_PREVIEW_ORIGIN_BOTTOM_RIGHT];
+            [faceCam setPreviewPositionX: 16];
+            [faceCam setPreviewPositionY: 16];
+            [faceCam setPreviewBorderWidth: 4.0f];
+            [faceCam setPreviewSideWidth: 128.0f];
+            [faceCam setPreviewScaleRetina: YES];
+
+            // [faceCam setPreviewVisible: NO];
+            // [faceCam setAudioOnly: YES];
+            [faceCam startSession];
+        } else {
+            [faceCam stopSession];
+        }
+    }
+}
+
 #pragma mark - Audio testing
 
 - (void)play1ButtonPressed:(id)sender {
@@ -744,6 +769,28 @@ enum {
 
     [[Everyplay sharedInstance] mergeSessionDeveloperData:@{@"testString" : @"hello"}];
     [[Everyplay sharedInstance] mergeSessionDeveloperData:@{@"testInteger" : @42}];
+}
+
+- (void)everyplayFaceCamSessionStarted {
+    ELOG;
+    [_faceCamButton setTitle:@"Stop FaceCam session" forState:UIControlStateNormal];
+}
+
+- (void)everyplayFaceCamSessionStopped {
+    ELOG;
+    [_faceCamButton setTitle:@"Start FaceCam session" forState:UIControlStateNormal];
+}
+
+- (void)everyplayUploadDidStart:(NSNumber *)videoId {
+    EveryplayLog(@"Upload started for video %@", videoId);
+}
+
+- (void)everyplayUploadDidProgress:(NSNumber *)videoId progress:(NSNumber *)progress {
+    EveryplayLog(@"Upload progress for video %@ = %@%%", videoId, progress);
+}
+
+- (void)everyplayUploadDidComplete:(NSNumber *)videoId {
+    EveryplayLog(@"Upload completed for video %@", videoId);
 }
 
 #endif
