@@ -51,6 +51,7 @@ enum {
 @property (nonatomic, retain) IBOutlet UIButton *recordButton;
 @property (nonatomic, retain) IBOutlet UIButton *videoButton;
 @property (nonatomic, retain) IBOutlet UIButton *loginButton;
+@property (nonatomic, retain) IBOutlet UIButton *modalButton;
 @property (nonatomic, retain) IBOutlet UIButton *hudButton;
 @property (nonatomic, retain) IBOutlet UIButton *faceCamButton;
 @property (nonatomic) BOOL hudEnabled;
@@ -97,20 +98,6 @@ enum {
     if ([EAGLContext currentContext] == context) {
         [EAGLContext setCurrentContext:nil];
     }
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self startAnimation];
-
-    [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [self stopAnimation];
-
-    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidLoad
@@ -190,10 +177,14 @@ enum {
 #if USE_EVERYPLAY
     [self createButtons];
 #endif
+
+    [self startAnimation];
 }
 
 - (void)viewDidUnload
 {
+    [self stopAnimation];
+
     [super viewDidUnload];
 
     if (program) {
@@ -536,6 +527,9 @@ enum {
     ADD_BUTTON(_videoButton, @"Test Video Playback", @selector(videoButtonPressed:));
 
     buttonY = buttonY + buttonHeight + padding;
+    ADD_BUTTON(_modalButton, @"Show sharing modal", @selector(modalButtonPressed:));
+
+    buttonY = buttonY + buttonHeight + padding;
     ADD_BUTTON(_loginButton, @"Login", @selector(loginButtonPressed:));
     [self updateLoginButtonState:_loginButton];
 
@@ -595,6 +589,10 @@ enum {
     } else {
         [[[Everyplay sharedInstance] capture] startRecording];
     }
+}
+
+- (IBAction)modalButtonPressed:(id)sender {
+    [[Everyplay sharedInstance] showEveryplaySharingModal];
 }
 
 - (IBAction)videoButtonPressed:(id)sender {
