@@ -125,6 +125,7 @@ enum {
         [self loadShaders];
     }
 
+    recordingPermissionGranted = NO;
     animating = FALSE;
     animationFrameInterval = 1;
     self.displayLink = nil;
@@ -538,7 +539,7 @@ enum {
     _hudButton.hidden = NO;
 
     buttonY = buttonY + buttonHeight + padding;
-    ADD_BUTTON(_faceCamButton, @"Start FaceCam session", @selector(faceCamButtonPressed:));
+    ADD_BUTTON(_faceCamButton, @"Request REC permission", @selector(faceCamButtonPressed:));
 #else
     ADD_BUTTON(_play1Button, @"Play song #1", @selector(play1ButtonPressed:));
 
@@ -658,16 +659,22 @@ enum {
 
     if (faceCam) {
         if (faceCam.isSessionRunning == NO) {
-            [faceCam setPreviewOrigin: EVERYPLAY_FACECAM_PREVIEW_ORIGIN_BOTTOM_RIGHT];
-            [faceCam setPreviewPositionX: 16];
-            [faceCam setPreviewPositionY: 16];
-            [faceCam setPreviewBorderWidth: 4.0f];
-            [faceCam setPreviewSideWidth: 128.0f];
-            [faceCam setPreviewScaleRetina: YES];
+            if(recordingPermissionGranted) {
+                [faceCam setPreviewOrigin: EVERYPLAY_FACECAM_PREVIEW_ORIGIN_BOTTOM_RIGHT];
+                [faceCam setPreviewPositionX: 16];
+                [faceCam setPreviewPositionY: 16];
+                [faceCam setPreviewBorderWidth: 4.0f];
+                [faceCam setPreviewSideWidth: 128.0f];
+                [faceCam setPreviewScaleRetina: YES];
 
-            // [faceCam setPreviewVisible: NO];
-            // [faceCam setAudioOnly: YES];
-            [faceCam startSession];
+                // [faceCam setPreviewVisible: NO];
+                // [faceCam setAudioOnly: YES];
+
+                [faceCam startSession];
+            }
+            else {
+                [faceCam requestRecordingPermission];
+            }
         } else {
             [faceCam stopSession];
         }
@@ -727,6 +734,17 @@ enum {
 }
 
 #pragma mark - Delegate Methods
+
+- (void)everyplayFaceCamRecordingPermission:(NSNumber *)granted {
+    if(granted) {
+        recordingPermissionGranted = [granted boolValue];
+
+        if(recordingPermissionGranted) {
+            [_faceCamButton setTitle: @"Start FaceCam session" forState:UIControlStateNormal];
+        }
+    }
+}
+
 - (void)everyplayShown {
     ELOG;
 

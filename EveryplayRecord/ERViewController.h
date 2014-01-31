@@ -48,6 +48,8 @@
     CADisplayLink *__unsafe_unretained displayLink;
 
     NSTimer *timer;
+
+    BOOL recordingPermissionGranted;
 }
 
 @property (readonly, nonatomic, getter=isAnimating) BOOL animating;
