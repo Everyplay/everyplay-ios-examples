@@ -92,11 +92,6 @@ GLfloat gCubeVertexData[216] =
 
     GLuint _vertexArray;
     GLuint _vertexBuffer;
-#if USE_EVERYPLAY
-    EveryplayCapture *everyplayCapture;
-    NSInteger oldDrawableWidth, oldDrawableHeight;
-    int framebuffer;
-#endif
 }
 @property (strong, nonatomic) EAGLContext *context;
 @property (strong, nonatomic) GLKBaseEffect *effect;
@@ -231,21 +226,6 @@ GLfloat gCubeVertexData[216] =
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
-#if USE_EVERYPLAY
-    if (everyplayCapture == nil) {
-        everyplayCapture = [[EveryplayCapture alloc] initWithView:view eaglContext:view.context layer:(CAEAGLLayer *)self.view.layer];
-    }
-
-    if (oldDrawableWidth != view.drawableWidth || oldDrawableHeight != view.drawableHeight) {
-        oldDrawableWidth = view.drawableWidth;
-        oldDrawableHeight = view.drawableHeight;
-        glGetIntegerv(GL_FRAMEBUFFER_BINDING, &framebuffer);
-        [everyplayCapture createFramebuffer:framebuffer];
-    }
-
-    [everyplayCapture afterPresentRenderbuffer];
-#endif
-
     glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -263,9 +243,6 @@ GLfloat gCubeVertexData[216] =
     glUniformMatrix3fv(uniforms[UNIFORM_NORMAL_MATRIX], 1, 0, _normalMatrix.m);
 
     glDrawArrays(GL_TRIANGLES, 0, 36);
-#if USE_EVERYPLAY
-    [everyplayCapture beforePresentRenderbuffer:framebuffer];
-#endif
 }
 
 #pragma mark -  OpenGL ES 2 shader compilation
