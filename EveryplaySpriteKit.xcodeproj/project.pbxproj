@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC8E0B9818CA02DE00ECC1B3 /* Everyplay.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CC8E0B9618CA02DE00ECC1B3 /* Everyplay.bundle */; };
+		CC8E0B9918CA02DE00ECC1B3 /* Everyplay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8E0B9718CA02DE00ECC1B3 /* Everyplay.framework */; };
+		CC8E0BAA18CA038400ECC1B3 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8E0B9A18CA038400ECC1B3 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CC8E0BAB18CA038400ECC1B3 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8E0B9B18CA038400ECC1B3 /* AssetsLibrary.framework */; };
+		CC8E0BAC18CA038400ECC1B3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8E0B9C18CA038400ECC1B3 /* AudioToolbox.framework */; };
+		CC8E0BAD18CA038400ECC1B3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8E0B9D18CA038400ECC1B3 /* AVFoundation.framework */; };
+		CC8E0BAE18CA038400ECC1B3 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8E0B9E18CA038400ECC1B3 /* CoreImage.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CC8E0BAF18CA038400ECC1B3 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8E0B9F18CA038400ECC1B3 /* CoreMedia.framework */; };
+		CC8E0BB018CA038400ECC1B3 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8E0BA018CA038400ECC1B3 /* CoreVideo.framework */; };
+		CC8E0BB118CA038400ECC1B3 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8E0BA118CA038400ECC1B3 /* MessageUI.framework */; };
+		CC8E0BB218CA038400ECC1B3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8E0BA218CA038400ECC1B3 /* MobileCoreServices.framework */; };
+		CC8E0BB318CA038400ECC1B3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8E0BA318CA038400ECC1B3 /* OpenGLES.framework */; };
+		CC8E0BB418CA038400ECC1B3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8E0BA418CA038400ECC1B3 /* QuartzCore.framework */; };
+		CC8E0BB518CA038400ECC1B3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8E0BA518CA038400ECC1B3 /* Security.framework */; };
+		CC8E0BB618CA038400ECC1B3 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8E0BA618CA038400ECC1B3 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CC8E0BB718CA038400ECC1B3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8E0BA718CA038400ECC1B3 /* StoreKit.framework */; };
+		CC8E0BB818CA038400ECC1B3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8E0BA818CA038400ECC1B3 /* SystemConfiguration.framework */; };
+		CC8E0BB918CA038400ECC1B3 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8E0BA918CA038400ECC1B3 /* Twitter.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CCAF9EBB18C9EA7D008753F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCAF9EBA18C9EA7D008753F2 /* Foundation.framework */; };
 		CCAF9EBD18C9EA7D008753F2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCAF9EBC18C9EA7D008753F2 /* CoreGraphics.framework */; };
 		CCAF9EBF18C9EA7D008753F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCAF9EBE18C9EA7D008753F2 /* UIKit.framework */; };
@@ -23,6 +41,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC8E0B9618CA02DE00ECC1B3 /* Everyplay.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Everyplay.bundle; path = "../everyplay-ios-sdk/Everyplay.bundle"; sourceTree = "<group>"; };
+		CC8E0B9718CA02DE00ECC1B3 /* Everyplay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Everyplay.framework; path = "../everyplay-ios-sdk/Everyplay.framework"; sourceTree = "<group>"; };
+		CC8E0B9A18CA038400ECC1B3 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		CC8E0B9B18CA038400ECC1B3 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		CC8E0B9C18CA038400ECC1B3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CC8E0B9D18CA038400ECC1B3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CC8E0B9E18CA038400ECC1B3 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		CC8E0B9F18CA038400ECC1B3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		CC8E0BA018CA038400ECC1B3 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		CC8E0BA118CA038400ECC1B3 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		CC8E0BA218CA038400ECC1B3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CC8E0BA318CA038400ECC1B3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		CC8E0BA418CA038400ECC1B3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CC8E0BA518CA038400ECC1B3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CC8E0BA618CA038400ECC1B3 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		CC8E0BA718CA038400ECC1B3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		CC8E0BA818CA038400ECC1B3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CC8E0BA918CA038400ECC1B3 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		CCAF9EB718C9EA7D008753F2 /* EveryplaySpriteKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EveryplaySpriteKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCAF9EBA18C9EA7D008753F2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CCAF9EBC18C9EA7D008753F2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -49,24 +85,53 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC8E0BAA18CA038400ECC1B3 /* AdSupport.framework in Frameworks */,
+				CC8E0BAB18CA038400ECC1B3 /* AssetsLibrary.framework in Frameworks */,
+				CC8E0BAC18CA038400ECC1B3 /* AudioToolbox.framework in Frameworks */,
+				CC8E0BAD18CA038400ECC1B3 /* AVFoundation.framework in Frameworks */,
+				CC8E0BAE18CA038400ECC1B3 /* CoreImage.framework in Frameworks */,
+				CC8E0BAF18CA038400ECC1B3 /* CoreMedia.framework in Frameworks */,
+				CC8E0BB018CA038400ECC1B3 /* CoreVideo.framework in Frameworks */,
+				CC8E0BB118CA038400ECC1B3 /* MessageUI.framework in Frameworks */,
+				CC8E0BB218CA038400ECC1B3 /* MobileCoreServices.framework in Frameworks */,
+				CC8E0BB318CA038400ECC1B3 /* OpenGLES.framework in Frameworks */,
+				CC8E0BB418CA038400ECC1B3 /* QuartzCore.framework in Frameworks */,
+				CC8E0BB518CA038400ECC1B3 /* Security.framework in Frameworks */,
+				CC8E0BB618CA038400ECC1B3 /* Social.framework in Frameworks */,
+				CC8E0BB718CA038400ECC1B3 /* StoreKit.framework in Frameworks */,
+				CC8E0BB818CA038400ECC1B3 /* SystemConfiguration.framework in Frameworks */,
+				CC8E0BB918CA038400ECC1B3 /* Twitter.framework in Frameworks */,
 				CCAF9EBD18C9EA7D008753F2 /* CoreGraphics.framework in Frameworks */,
+				CCAF9EBB18C9EA7D008753F2 /* Foundation.framework in Frameworks */,
 				CCAF9EBF18C9EA7D008753F2 /* UIKit.framework in Frameworks */,
 				CCAF9EC118C9EA7D008753F2 /* SpriteKit.framework in Frameworks */,
-				CCAF9EBB18C9EA7D008753F2 /* Foundation.framework in Frameworks */,
+				CC8E0B9918CA02DE00ECC1B3 /* Everyplay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC8E0B9518CA02BE00ECC1B3 /* Everyplay */ = {
+			isa = PBXGroup;
+			children = (
+				CC8E0B9618CA02DE00ECC1B3 /* Everyplay.bundle */,
+				CC8E0B9718CA02DE00ECC1B3 /* Everyplay.framework */,
+			);
+			name = Everyplay;
+			sourceTree = "<group>";
+		};
 		CCAF9EAE18C9EA7C008753F2 = {
 			isa = PBXGroup;
 			children = (
+				CC8E0B9518CA02BE00ECC1B3 /* Everyplay */,
 				CCAF9EC218C9EA7D008753F2 /* EveryplaySpriteKit */,
 				CCAF9EB918C9EA7D008753F2 /* Frameworks */,
 				CCAF9EB818C9EA7D008753F2 /* Products */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		CCAF9EB818C9EA7D008753F2 /* Products */ = {
 			isa = PBXGroup;
@@ -79,6 +144,22 @@
 		CCAF9EB918C9EA7D008753F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CC8E0B9A18CA038400ECC1B3 /* AdSupport.framework */,
+				CC8E0B9B18CA038400ECC1B3 /* AssetsLibrary.framework */,
+				CC8E0B9C18CA038400ECC1B3 /* AudioToolbox.framework */,
+				CC8E0B9D18CA038400ECC1B3 /* AVFoundation.framework */,
+				CC8E0B9E18CA038400ECC1B3 /* CoreImage.framework */,
+				CC8E0B9F18CA038400ECC1B3 /* CoreMedia.framework */,
+				CC8E0BA018CA038400ECC1B3 /* CoreVideo.framework */,
+				CC8E0BA118CA038400ECC1B3 /* MessageUI.framework */,
+				CC8E0BA218CA038400ECC1B3 /* MobileCoreServices.framework */,
+				CC8E0BA318CA038400ECC1B3 /* OpenGLES.framework */,
+				CC8E0BA418CA038400ECC1B3 /* QuartzCore.framework */,
+				CC8E0BA518CA038400ECC1B3 /* Security.framework */,
+				CC8E0BA618CA038400ECC1B3 /* Social.framework */,
+				CC8E0BA718CA038400ECC1B3 /* StoreKit.framework */,
+				CC8E0BA818CA038400ECC1B3 /* SystemConfiguration.framework */,
+				CC8E0BA918CA038400ECC1B3 /* Twitter.framework */,
 				CCAF9EBA18C9EA7D008753F2 /* Foundation.framework */,
 				CCAF9EBC18C9EA7D008753F2 /* CoreGraphics.framework */,
 				CCAF9EBE18C9EA7D008753F2 /* UIKit.framework */,
@@ -170,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCAF9EDB18C9EA7D008753F2 /* Spaceship.png in Resources */,
+				CC8E0B9818CA02DE00ECC1B3 /* Everyplay.bundle in Resources */,
 				CCAF9EDD18C9EA7D008753F2 /* Images.xcassets in Resources */,
 				CCAF9ED318C9EA7D008753F2 /* Main_iPad.storyboard in Resources */,
 				CCAF9ED018C9EA7D008753F2 /* Main_iPhone.storyboard in Resources */,
@@ -300,6 +382,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../everyplay-ios-sdk"
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EveryplaySpriteKit/EveryplaySpriteKit-Prefix.pch";
 				INFOPLIST_FILE = "EveryplaySpriteKit/EveryplaySpriteKit-Info.plist";
@@ -314,6 +400,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../everyplay-ios-sdk"
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EveryplaySpriteKit/EveryplaySpriteKit-Prefix.pch";
 				INFOPLIST_FILE = "EveryplaySpriteKit/EveryplaySpriteKit-Info.plist";

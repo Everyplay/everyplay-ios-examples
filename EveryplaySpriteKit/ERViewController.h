@@ -18,6 +18,15 @@
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 
-@interface ERViewController : UIViewController
+#define USE_EVERYPLAY 1
+
+#if USE_EVERYPLAY
+#import <Everyplay/Everyplay.h>
+#define DELEGATES <EveryplayDelegate>
+#else
+#define DELEGATES
+#endif
+
+@interface ERViewController : UIViewController DELEGATES
 
 @end

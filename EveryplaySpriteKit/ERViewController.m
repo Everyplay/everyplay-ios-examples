@@ -24,6 +24,15 @@
 {
     [super viewDidLoad];
 
+#if USE_EVERYPLAY
+    // Initialize Everyplay SDK with our client id and secret.
+    // These can be created at https://developers.everyplay.com
+    [Everyplay setClientId:@"b459897317dc88c80b4515e380e1378022f874d2" clientSecret:@"f1a162969efb1c27aac6977f35b34127e68ee163" redirectURI:@"https://m.everyplay.com/auth"];
+
+    // Tell Everyplay to use our rootViewController for presenting views and for delegate calls.
+    [Everyplay initWithDelegate:self andParentViewController:self];
+#endif
+
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
@@ -39,6 +48,11 @@
 
 - (BOOL)shouldAutorotate
 {
+#if USE_EVERYPLAY
+    if ([[[Everyplay sharedInstance] capture] isRecording] == YES) {
+        return NO;
+    }
+#endif
     return YES;
 }
 
@@ -49,6 +63,58 @@
     } else {
         return UIInterfaceOrientationMaskAll;
     }
+}
+
+/* While recording, keep orientation locked */
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+#if USE_EVERYPLAY
+    if ([[[Everyplay sharedInstance] capture] isRecording] == YES) {
+        return [UIApplication sharedApplication].statusBarOrientation == toInterfaceOrientation;
+    }
+#endif
+    return [super shouldAutorotateToInterfaceOrientation:toInterfaceOrientation];
+}
+
+#if USE_EVERYPLAY
+- (void)everyplayShown
+{
+    SKView *skView = (SKView *)self.view;
+    skView.paused = YES;
+}
+
+- (void)everyplayHidden
+{
+    SKView *skView = (SKView *)self.view;
+    skView.paused = NO;
+}
+
+- (void)everyplayRecordingStarted
+{
+    NSLog(@"everyplayRecordingStarted");
+}
+
+- (void)everyplayRecordingStopped
+{
+    NSLog(@"everyplayRecordingStopped");
+}
+#endif
+
+- (IBAction)recordButton:(id)sender {
+#if USE_EVERYPLAY
+    BOOL isRecording = [[[Everyplay sharedInstance] capture] isRecording];
+
+    if (isRecording == NO) {
+        [[[Everyplay sharedInstance] capture] startRecording];
+        [sender setTitle:@"Stop Recording" forState:UIControlStateNormal];
+    } else {
+        [[[Everyplay sharedInstance] capture] stopRecording];
+        [[Everyplay sharedInstance] playLastRecording];
+        [sender setTitle:@"Start Recording" forState:UIControlStateNormal];
+    }
+#else
+    NSLog(@"Everyplay not enabled");
+#endif
 }
 
 - (void)didReceiveMemoryWarning
