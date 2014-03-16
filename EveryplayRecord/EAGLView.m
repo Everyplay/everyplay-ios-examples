@@ -161,7 +161,7 @@
         }
 
         if (msaaColorRenderbuffer) {
-            glDeleteFramebuffers(1, &msaaColorRenderbuffer);
+            glDeleteRenderbuffers(1, &msaaColorRenderbuffer);
             msaaColorRenderbuffer = 0;
         }
 
@@ -171,7 +171,7 @@
         }
 
         if (msaaDepthRenderbuffer) {
-            glDeleteFramebuffers(1, &msaaDepthRenderbuffer);
+            glDeleteRenderbuffers(1, &msaaDepthRenderbuffer);
             msaaDepthRenderbuffer = 0;
         }
 
