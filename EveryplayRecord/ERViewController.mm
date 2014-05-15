@@ -121,7 +121,7 @@ enum {
     [(EAGLView *)self.view setContext:context];
     [(EAGLView *)self.view setFramebuffer];
 
-    if ([context API] == kEAGLRenderingAPIOpenGLES2) {
+    if ([context API] >= kEAGLRenderingAPIOpenGLES2) {
         [self loadShaders];
     }
 
@@ -273,7 +273,7 @@ enum {
     glClearColor(0.45f, 0.45f, 0.45f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    if ([context API] == kEAGLRenderingAPIOpenGLES2) {
+    if ([context API] >= kEAGLRenderingAPIOpenGLES2) {
         // Use shader program.
         glUseProgram(program);
 
@@ -666,6 +666,13 @@ enum {
                 [faceCam setPreviewBorderWidth: 4.0f];
                 [faceCam setPreviewSideWidth: 128.0f];
                 [faceCam setPreviewScaleRetina: YES];
+
+                EveryplayFaceCamColor color;
+                color.r = 1;
+                color.g = 0.3;
+                color.b = 1;
+
+                [faceCam setPreviewBorderColor:color];
 
                 // [faceCam setPreviewVisible: NO];
                 // [faceCam setAudioOnly: YES];

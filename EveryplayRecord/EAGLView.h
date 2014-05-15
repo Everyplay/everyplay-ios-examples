@@ -21,11 +21,11 @@
 #import <OpenGLES/ES1/glext.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
-#import "Config.h"
-
-#if USE_EVERYPLAY
-#import <Everyplay/Everyplay.h>
+#ifdef __IPHONE_7_0
+#import <OpenGLES/ES3/gl.h>
+#import <OpenGLES/ES3/glext.h>
 #endif
+#import "Config.h"
 
 // This class wraps the CAEAGLLayer from CoreAnimation into a convenient UIView subclass.
 // The view content is basically an EAGL surface you render your OpenGL scene into.
@@ -44,10 +44,6 @@
     // Used in MSAA.
     GLuint msaaFramebuffer, msaaColorRenderbuffer, msaaDepthRenderbuffer;
     BOOL useMSAA;
-
-#if USE_EVERYPLAY
-    EveryplayCapture *everyplayCapture;
-#endif
 }
 
 @property (nonatomic, strong) EAGLContext *context;
