@@ -18,6 +18,18 @@
 #import <QuartzCore/QuartzCore.h>
 #import "EAGLView.h"
 
+#define USE_16bit 0
+
+#define USE_MSAA 0
+
+#if USE_16bit
+#define colorFormatLayer kEAGLColorFormatRGB565
+#define colorFormat GL_RGB565
+#else
+#define colorFormatLayer kEAGLColorFormatRGBA8
+#define colorFormat GL_RGBA8_OES
+#endif
+
 @interface EAGLView (PrivateMethods)
 - (void)createFramebuffer;
 - (void)deleteFramebuffer;
@@ -44,9 +56,7 @@
         eaglLayer.opaque = TRUE;
         eaglLayer.drawableProperties = @{
           kEAGLDrawablePropertyRetainedBacking: [NSNumber numberWithBool:FALSE],
-          // kEAGLColorFormatRGBA8
-          // kEAGLColorFormatRGB565
-          kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8
+          kEAGLDrawablePropertyColorFormat: colorFormatLayer
         };
     }
 
@@ -106,7 +116,11 @@
         // Attach depth render buffer
         glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthRenderbuffer);
 
+#if USE_MSAA
+        useMSAA = YES;
+#else
         useMSAA = NO;
+#endif
 
         if (useMSAA) {
             glGenFramebuffers(1, &msaaFramebuffer);
@@ -114,12 +128,20 @@
 
             glGenRenderbuffers(1, &msaaColorRenderbuffer);
             glBindRenderbuffer(GL_RENDERBUFFER, msaaColorRenderbuffer);
-            glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, 2, GL_RGBA8_OES, framebufferWidth, framebufferHeight);
+            if ([context API] >= kEAGLRenderingAPIOpenGLES3) {
+                glRenderbufferStorageMultisample(GL_RENDERBUFFER, 2, colorFormat, framebufferWidth, framebufferHeight);
+            } else {
+                glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, 2, colorFormat, framebufferWidth, framebufferHeight);
+            }
             glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, msaaColorRenderbuffer);
 
             glGenRenderbuffers(1, &msaaDepthRenderbuffer);
             glBindRenderbuffer(GL_RENDERBUFFER, msaaDepthRenderbuffer);
-            glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, 2, GL_DEPTH_COMPONENT16, framebufferWidth, framebufferHeight);
+            if ([context API] >= kEAGLRenderingAPIOpenGLES3) {
+                glRenderbufferStorageMultisample(GL_RENDERBUFFER, 2, GL_DEPTH_COMPONENT16, framebufferWidth, framebufferHeight);
+            } else {
+                glRenderbufferStorageMultisampleAPPLE(GL_RENDERBUFFER, 2, GL_DEPTH_COMPONENT16, framebufferWidth, framebufferHeight);
+            }
             glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, msaaDepthRenderbuffer);
 
             glBindRenderbuffer(GL_RENDERBUFFER, msaaColorRenderbuffer);
@@ -136,14 +158,29 @@
     if (context) {
         [EAGLContext setCurrentContext:context];
 
+        if (msaaFramebuffer) {
+            glDeleteFramebuffers(1, &msaaFramebuffer);
+            msaaFramebuffer = 0;
+        }
+
         if (defaultFramebuffer) {
             glDeleteFramebuffers(1, &defaultFramebuffer);
             defaultFramebuffer = 0;
         }
 
+        if (msaaColorRenderbuffer) {
+            glDeleteRenderbuffers(1, &msaaColorRenderbuffer);
+            msaaColorRenderbuffer = 0;
+        }
+
         if (colorRenderbuffer) {
             glDeleteRenderbuffers(1, &colorRenderbuffer);
             colorRenderbuffer = 0;
+        }
+
+        if (msaaDepthRenderbuffer) {
+            glDeleteRenderbuffers(1, &msaaDepthRenderbuffer);
+            msaaDepthRenderbuffer = 0;
         }
 
         if (depthRenderbuffer) {
@@ -175,23 +212,35 @@
         if (useMSAA) {
             glBindFramebuffer(GL_READ_FRAMEBUFFER_APPLE, msaaFramebuffer);
             glBindFramebuffer(GL_DRAW_FRAMEBUFFER_APPLE, defaultFramebuffer);
-            glResolveMultisampleFramebufferAPPLE();
 
             static const GLenum s_attachments[] = { GL_COLOR_ATTACHMENT0, GL_DEPTH_ATTACHMENT };
-            glDiscardFramebufferEXT(GL_READ_FRAMEBUFFER_APPLE, ARRAY_LENGTH(s_attachments), s_attachments);
+
+            if ([context API] >= kEAGLRenderingAPIOpenGLES3) {
+                glBlitFramebuffer(0, 0, framebufferWidth, framebufferHeight,
+                                  0, 0, framebufferWidth, framebufferHeight,
+                                  GL_COLOR_BUFFER_BIT, GL_NEAREST);
+                glInvalidateFramebuffer(GL_READ_FRAMEBUFFER_APPLE, ARRAY_LENGTH(s_attachments), s_attachments);
+            } else {
+                glResolveMultisampleFramebufferAPPLE();
+                glDiscardFramebufferEXT(GL_READ_FRAMEBUFFER_APPLE, ARRAY_LENGTH(s_attachments), s_attachments);
+            }
         } else {
             static const GLenum s_attachments[] = { GL_DEPTH_ATTACHMENT };
-            glDiscardFramebufferEXT(GL_READ_FRAMEBUFFER_APPLE, ARRAY_LENGTH(s_attachments), s_attachments);
+            if ([context API] >= kEAGLRenderingAPIOpenGLES3) {
+                glInvalidateFramebuffer(GL_READ_FRAMEBUFFER_APPLE, ARRAY_LENGTH(s_attachments), s_attachments);
+            } else {
+                glDiscardFramebufferEXT(GL_READ_FRAMEBUFFER_APPLE, ARRAY_LENGTH(s_attachments), s_attachments);
+            }
         }
-
+        
         glBindRenderbuffer(GL_RENDERBUFFER, colorRenderbuffer);
         success = [context presentRenderbuffer:GL_RENDERBUFFER];
-
+        
         if (useMSAA) {
             glBindFramebuffer(GL_FRAMEBUFFER, msaaFramebuffer);
         }
     }
-
+    
     return success;
 }
 

@@ -45,6 +45,8 @@ enum {
 @property (nonatomic, strong) EAGLContext *context;
 @property (nonatomic, unsafe_unretained) CADisplayLink *__unsafe_unretained displayLink;
 
+@property (nonatomic) NSString *song1;
+
 - (BOOL)loadShaders;
 - (BOOL)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file;
 - (BOOL)linkProgram:(GLuint)prog;
@@ -69,20 +71,6 @@ enum {
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self startAnimation];
-
-    [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [self stopAnimation];
-
-    [super viewWillDisappear:animated];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -104,7 +92,7 @@ enum {
     [(EAGLView *)self.view setContext:context];
     [(EAGLView *)self.view setFramebuffer];
 
-    if ([context API] == kEAGLRenderingAPIOpenGLES2) {
+    if ([context API] >= kEAGLRenderingAPIOpenGLES2) {
         [self loadShaders];
     }
 
@@ -112,7 +100,7 @@ enum {
     animationFrameInterval = 1;
     self.displayLink = nil;
 
-    // [Everyplay sharedInstance].flowControl = EveryplayFlowReturnsToVideoPlayer;
+    _song1 = [NSString stringWithFormat:@"%@/loop.wav", [[NSBundle mainBundle] resourcePath]];
 
 #if USE_AUDIO
     FMOD_RESULT   result        = FMOD_OK;
@@ -137,17 +125,20 @@ enum {
 
     result = fmod_system->init(32, FMOD_INIT_NORMAL, &extradriverdata);
 
-    [[NSString stringWithFormat:@"%@/loop.wav", [[NSBundle mainBundle] resourcePath]] getCString:buffer maxLength:200 encoding:NSASCIIStringEncoding];
+    [_song1 getCString:buffer maxLength:200 encoding:NSASCIIStringEncoding];
     result = fmod_system->createSound(buffer, FMOD_SOFTWARE | FMOD_LOOP_NORMAL, NULL, &sound1);
 
     result = fmod_system->playSound(FMOD_CHANNEL_FREE, sound1, false, &channel);
 #endif
 
     // Do any additional setup after loading the view, typically from a nib.
+    [self startAnimation];
 }
 
 - (void)viewDidUnload
 {
+    [self stopAnimation];
+
     [super viewDidUnload];
 
     if (program) {
@@ -235,7 +226,7 @@ enum {
     glClearColor(0.45f, 0.45f, 0.45f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    if ([context API] == kEAGLRenderingAPIOpenGLES2) {
+    if ([context API] >= kEAGLRenderingAPIOpenGLES2) {
         // Use shader program.
         glUseProgram(program);
 

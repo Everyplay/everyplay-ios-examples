@@ -21,6 +21,10 @@
 #import <OpenGLES/ES1/glext.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
+#ifdef __IPHONE_7_0
+#import <OpenGLES/ES3/gl.h>
+#import <OpenGLES/ES3/glext.h>
+#endif
 #import "Config.h"
 
 // This class wraps the CAEAGLLayer from CoreAnimation into a convenient UIView subclass.
