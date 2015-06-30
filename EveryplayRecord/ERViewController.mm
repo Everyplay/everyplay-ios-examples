@@ -56,25 +56,7 @@ enum {
 @property (nonatomic, retain) IBOutlet UIButton *faceCamButton;
 @property (nonatomic) BOOL hudEnabled;
 
-@property (nonatomic, retain) IBOutlet UIButton *play1Button;
-@property (nonatomic, retain) IBOutlet UIButton *unload1Button;
-@property (nonatomic, retain) IBOutlet UIButton *play2Button;
-@property (nonatomic, retain) IBOutlet UIButton *unload2Button;
-@property (nonatomic, retain) IBOutlet UIButton *pauseButton;
-@property (nonatomic, retain) IBOutlet UIButton *resumeButton;
-@property (nonatomic, retain) IBOutlet UIButton *rewindButton;
-@property (nonatomic, retain) IBOutlet UIButton *stopButton;
-
-@property (nonatomic, retain) IBOutlet UIButton *effect1Button;
-@property (nonatomic, retain) IBOutlet UIButton *effect2Button;
-
 @property (nonatomic) NSString *song1;
-@property (nonatomic) NSString *song2;
-
-@property (nonatomic) NSString *effect1;
-@property (nonatomic) float effect1Pitch;
-@property (nonatomic) NSString *effect2;
-@property (nonatomic) float effect2Pitch;
 
 - (BOOL)loadShaders;
 - (BOOL)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file;
@@ -133,13 +115,6 @@ enum {
     // [Everyplay sharedInstance].flowControl = EveryplayFlowReturnsToVideoPlayer;
 
     _song1 = [NSString stringWithFormat:@"%@/loop.wav", [[NSBundle mainBundle] resourcePath]];
-    _song2 = [NSString stringWithFormat:@"%@/loop2.wav", [[NSBundle mainBundle] resourcePath]];
-
-    _effect1 = [NSString stringWithFormat:@"%@/Pew.caf", [[NSBundle mainBundle] resourcePath]];
-    _effect2 = [NSString stringWithFormat:@"%@/Pow.caf", [[NSBundle mainBundle] resourcePath]];
-
-    _effect1Pitch = 1.0f;
-    _effect2Pitch = 1.0f;
 
     self.hudEnabled = YES;
 
@@ -518,7 +493,6 @@ enum {
     int buttonHeight = 40;
     int padding = 8;
 
-#if !USE_EVERYPLAY_AUDIO_BOARD
     ADD_BUTTON(_everyplayButton, @"Everyplay", @selector(everyplayButtonPressed:));
 
     buttonY = buttonY + buttonHeight + padding;
@@ -540,44 +514,6 @@ enum {
 
     buttonY = buttonY + buttonHeight + padding;
     ADD_BUTTON(_faceCamButton, @"Request REC permission", @selector(faceCamButtonPressed:));
-#else
-    ADD_BUTTON(_play1Button, @"Play song #1", @selector(play1ButtonPressed:));
-
-    buttonY = buttonY + buttonHeight + padding;
-    ADD_BUTTON(_unload1Button, @"Unload song #1", @selector(unload1ButtonPressed:));
-
-    buttonY = buttonY + buttonHeight + padding;
-    ADD_BUTTON(_pauseButton, @"Pause song", @selector(pauseButtonPressed:));
-
-    buttonY = buttonY + buttonHeight + padding;
-    ADD_BUTTON(_resumeButton, @"Resume song", @selector(resumeButtonPressed:));
-
-    buttonY = buttonY + buttonHeight + padding;
-    ADD_BUTTON(_rewindButton, @"Rewind song", @selector(rewindButtonPressed:));
-
-    buttonY = buttonY + buttonHeight + padding;
-    ADD_BUTTON(_stopButton, @"Stop song", @selector(stopButtonPressed:));
-
-    buttonY = 10;
-    buttonX = buttonX + buttonWidth + padding;
-
-    ADD_BUTTON(_play2Button, @"Play song #2", @selector(play2ButtonPressed:));
-
-    buttonY = buttonY + buttonHeight + padding;
-    ADD_BUTTON(_unload2Button, @"Unload song #2", @selector(unload2ButtonPressed:));
-
-    buttonY = buttonY + buttonHeight + padding;
-    ADD_BUTTON(_effect1Button, @"Effect #1", @selector(effect1ButtonPressed:));
-
-    buttonY = buttonY + buttonHeight + padding;
-    ADD_BUTTON(_effect2Button, @"Effect #2", @selector(effect2ButtonPressed:));
-
-    buttonY = buttonY + buttonHeight + padding;
-    ADD_BUTTON(_recordButton, @"Start recording", @selector(recordButtonPressed:));
-
-    buttonY = buttonY + buttonHeight + padding;
-    ADD_BUTTON(_videoButton, @"Test Video Playback", @selector(videoButtonPressed:));
-#endif
 }
 
 - (IBAction)everyplayButtonPressed:(id)sender {
@@ -688,58 +624,6 @@ enum {
     }
 }
 
-#pragma mark - Audio testing
-
-- (void)play1ButtonPressed:(id)sender {
-    [[EveryplaySoundEngine sharedInstance] playBackgroundMusic:_song1 loop:YES];
-}
-
-- (void)unload1ButtonPressed:(id)sender {
-    [[EveryplaySoundEngine sharedInstance] unloadBackgroundMusic:_song1];
-}
-
-- (void)play2ButtonPressed:(id)sender {
-    [[EveryplaySoundEngine sharedInstance] playBackgroundMusic:_song2 loop:YES];
-}
-
-- (void)unload2ButtonPressed:(id)sender {
-    [[EveryplaySoundEngine sharedInstance] unloadBackgroundMusic:_song2];
-}
-
-- (void)pauseButtonPressed:(id)sender {
-    [[EveryplaySoundEngine sharedInstance] pauseBackgroundMusic];
-}
-
-- (void)resumeButtonPressed:(id)sender {
-    [[EveryplaySoundEngine sharedInstance] resumeBackgroundMusic];
-}
-
-- (void)rewindButtonPressed:(id)sender {
-    [[EveryplaySoundEngine sharedInstance] rewindBackgroundMusic];
-}
-
-- (void)stopButtonPressed:(id)sender {
-    [[EveryplaySoundEngine sharedInstance] stopBackgroundMusic];
-}
-
-- (void)effect1ButtonPressed:(id)sender {
-    _effect1Pitch += 0.1f;
-    if (_effect1Pitch >= 2.0) {
-        _effect1Pitch = 0.2f;
-    }
-
-    [[EveryplaySoundEngine sharedInstance] playEffect:_effect1 loop:NO pitch:_effect1Pitch pan:0.0f gain:1.0f];
-}
-
-- (void)effect2ButtonPressed:(id)sender {
-    _effect2Pitch += 0.1f;
-    if (_effect2Pitch >= 2.0) {
-        _effect2Pitch = 0.2f;
-    }
-
-    [[EveryplaySoundEngine sharedInstance] playEffect:_effect2 loop:NO pitch:_effect2Pitch pan:0.0f gain:1.0f];
-}
-
 #pragma mark - Delegate Methods
 
 - (void)everyplayFaceCamRecordingPermission:(NSNumber *)granted {
@@ -760,7 +644,6 @@ enum {
 #if USE_FMOD
     channel->setMute(true);
 #endif
-    [[EveryplaySoundEngine sharedInstance] pauseBackgroundMusic];
 #endif
 }
 
@@ -772,7 +655,6 @@ enum {
 #if USE_FMOD
     channel->setMute(false);
 #endif
-    [[EveryplaySoundEngine sharedInstance] resumeBackgroundMusic];
 #endif
 }
 
