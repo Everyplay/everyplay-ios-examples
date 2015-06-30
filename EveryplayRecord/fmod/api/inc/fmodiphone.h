@@ -1,5 +1,5 @@
 /* ============================================================================================ */
-/* FMOD iPhone Specific header file. Copyright (c), Firelight Technologies Pty, Ltd. 2005-2011. */
+/* FMOD iPhone Specific header file. Copyright (c), Firelight Technologies Pty, Ltd. 2005-2014. */
 /* ============================================================================================ */
 
 #ifndef _FMODIPHONE_H
