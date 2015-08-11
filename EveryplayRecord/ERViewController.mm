@@ -524,6 +524,7 @@ enum {
     if ([[[Everyplay sharedInstance] capture] isRecording]) {
         [[[Everyplay sharedInstance] capture] stopRecording];
     } else {
+        [[Everyplay sharedInstance] capture].targetFPS = 60;
         [[[Everyplay sharedInstance] capture] startRecording];
     }
 }
