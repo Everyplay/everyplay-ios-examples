@@ -215,7 +215,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = EV;
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Everyplay;
 			};
 			buildConfigurationList = CC4C5B9D1695D5DE0082B627 /* Build configuration list for PBXProject "EveryplayVideo" */;
@@ -287,6 +287,8 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -316,6 +318,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -339,6 +342,7 @@
 				GCC_PREFIX_HEADER = "EveryplayVideo/EveryplayVideo-Prefix.pch";
 				INFOPLIST_FILE = "EveryplayVideo/EveryplayVideo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.everyplay.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -355,6 +359,7 @@
 				GCC_PREFIX_HEADER = "EveryplayVideo/EveryplayVideo-Prefix.pch";
 				INFOPLIST_FILE = "EveryplayVideo/EveryplayVideo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.everyplay.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

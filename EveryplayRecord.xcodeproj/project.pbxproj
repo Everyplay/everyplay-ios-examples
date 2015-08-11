@@ -265,7 +265,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = ER;
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Everyplay;
 			};
 			buildConfigurationList = CC5B2C7916977AEF007ECDC7 /* Build configuration list for PBXProject "EveryplayRecord" */;
@@ -359,7 +359,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -367,6 +366,8 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -389,7 +390,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -397,6 +397,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -424,6 +425,7 @@
 				INFOPLIST_FILE = "EveryplayRecord/EveryplayRecord-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/EveryplayRecord/fmod/api/lib";
 				OTHER_LDFLAGS = "-lfmodexL_$PLATFORM_NAME";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.everyplay.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -444,6 +446,7 @@
 				INFOPLIST_FILE = "EveryplayRecord/EveryplayRecord-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/EveryplayRecord/fmod/api/lib";
 				OTHER_LDFLAGS = "-lfmodexL_$PLATFORM_NAME";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.everyplay.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
