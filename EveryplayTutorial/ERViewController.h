@@ -17,10 +17,11 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import <AVFoundation/AVFoundation.h>
 #import "EAGLView.h"
 #import "Config.h"
 
-@interface ERViewController : UIViewController {
+@interface ERViewController : UIViewController <AVAudioPlayerDelegate> {
     EAGLContext *context;
     GLuint program;
 

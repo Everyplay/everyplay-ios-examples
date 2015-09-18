@@ -17,6 +17,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import <AVFoundation/AVFoundation.h>
 #import "EAGLView.h"
 #import "Config.h"
 
@@ -34,7 +35,7 @@
 #define ELOG EveryplayLog(@"")
 
 #if USE_EVERYPLAY
-#define EP_DELEGATE <EveryplayDelegate>
+#define EP_DELEGATE <EveryplayDelegate, AVAudioPlayerDelegate>
 #else
 #define EP_DELEGATE
 #endif

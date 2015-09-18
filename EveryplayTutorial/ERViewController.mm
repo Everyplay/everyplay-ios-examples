@@ -18,13 +18,7 @@
 #import "ERViewController.h"
 
 #if USE_AUDIO
-#import "fmod.hpp"
-#import "fmod_errors.h"
-#import "fmodiphone.h"
-
-FMOD::System *fmod_system;
-FMOD::Sound *sound1;
-FMOD::Channel *channel;
+AVAudioPlayer *audioPlayer = nil;
 #endif
 
 // Uniform index.
@@ -103,32 +97,37 @@ enum {
     _song1 = [NSString stringWithFormat:@"%@/loop.wav", [[NSBundle mainBundle] resourcePath]];
 
 #if USE_AUDIO
-    FMOD_RESULT   result        = FMOD_OK;
-    char          buffer[200]   = {0};
-    unsigned int  version       = 0;
+    NSError *error;
 
-    result = FMOD::Debug_SetLevel(FMOD_DEBUG_LEVEL_NONE);
-    result = FMOD::System_Create(&fmod_system);
-    result = fmod_system->getVersion(&version);
+#if 1
+    audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:_song1] error:&error];
+#else
+    NSData *songData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:_song1]];
+    audioPlayer = [[AVAudioPlayer alloc] initWithData:songData error:&error];
+#endif
 
-    if (version < FMOD_VERSION) {
-        fprintf(stderr, "You are using an old version of FMOD %08x.  This program requires %08x\n", version, FMOD_VERSION);
-        exit(-1);
-    }
+    audioPlayer.numberOfLoops = -1;
+    audioPlayer.delegate = self;
 
-    result = fmod_system->setSoftwareFormat(44100, FMOD_SOUND_FORMAT_PCM16, 1, 0, FMOD_DSP_RESAMPLER_LINEAR);
+    NSLog(@"DURATION: %f", audioPlayer.duration);
 
-    FMOD_IPHONE_EXTRADRIVERDATA extradriverdata;
-    memset(&extradriverdata, 0, sizeof(FMOD_IPHONE_EXTRADRIVERDATA));
-    extradriverdata.sessionCategory = FMOD_IPHONE_SESSIONCATEGORY_AMBIENTSOUND;
-    extradriverdata.forceMixWithOthers = false;
+#if 1
+    // "AudioQueueProcessingTapGetSourceAudio posting message to kill mediaserverd"
+    //
+    // The error message above can happen in some cases, like when debugging and
+    // doing a breakpoint, issuing playback immediately on some slower devices
+    // while the view/application is still loading. Just FYI, it should still
+    // eventually recover back to playback after mediaserverd reset
+    //
+    // Alternatively one can try to avoid doing everything at once and issue
+    // playback after some delay as a workaround
 
-    result = fmod_system->init(32, FMOD_INIT_NORMAL, &extradriverdata);
-
-    [_song1 getCString:buffer maxLength:200 encoding:NSASCIIStringEncoding];
-    result = fmod_system->createSound(buffer, FMOD_SOFTWARE | FMOD_LOOP_NORMAL, NULL, &sound1);
-
-    result = fmod_system->playSound(FMOD_CHANNEL_FREE, sound1, false, &channel);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.0f * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [audioPlayer play];
+    });
+#else
+    [audioPlayer play];
+#endif
 #endif
 
     // Do any additional setup after loading the view, typically from a nib.

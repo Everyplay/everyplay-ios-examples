@@ -23,6 +23,7 @@
 		CC5B2CFE16982A4B007ECDC7 /* loop.wav in Resources */ = {isa = PBXBuildFile; fileRef = CC5B2CFA16982A4B007ECDC7 /* loop.wav */; };
 		CC5B2D0116982A84007ECDC7 /* Shader_f.glsl in Resources */ = {isa = PBXBuildFile; fileRef = CC5B2CFC16982A4B007ECDC7 /* Shader_f.glsl */; };
 		CC5B2D0216982A8A007ECDC7 /* Shader_v.glsl in Resources */ = {isa = PBXBuildFile; fileRef = CC5B2CFD16982A4B007ECDC7 /* Shader_v.glsl */; };
+		CC9496321BAC7E63009E95F1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC9496311BAC7E63009E95F1 /* AVFoundation.framework */; };
 		CCF7B3091699FB830006CC80 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF7B3051699FB830006CC80 /* Icon-72.png */; };
 		CCF7B30A1699FB830006CC80 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF7B3061699FB830006CC80 /* Icon-72@2x.png */; };
 		CCF7B30B1699FB830006CC80 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CCF7B3071699FB830006CC80 /* Icon.png */; };
@@ -53,6 +54,7 @@
 		CC5B2CFA16982A4B007ECDC7 /* loop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = loop.wav; path = EveryplayTutorial/Resources/loop.wav; sourceTree = "<group>"; };
 		CC5B2CFC16982A4B007ECDC7 /* Shader_f.glsl */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = Shader_f.glsl; sourceTree = "<group>"; };
 		CC5B2CFD16982A4B007ECDC7 /* Shader_v.glsl */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = Shader_v.glsl; sourceTree = "<group>"; };
+		CC9496311BAC7E63009E95F1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CCF7B3051699FB830006CC80 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		CCF7B3061699FB830006CC80 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		CCF7B3071699FB830006CC80 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				CC5B2C8616977AEF007ECDC7 /* Foundation.framework in Frameworks */,
 				CC5B2C8816977AEF007ECDC7 /* CoreGraphics.framework in Frameworks */,
 				CC5B2CD416978AA7007ECDC7 /* AudioToolbox.framework in Frameworks */,
+				CC9496321BAC7E63009E95F1 /* AVFoundation.framework in Frameworks */,
 				CC5B2CDE16978AA7007ECDC7 /* OpenGLES.framework in Frameworks */,
 				CC5B2CDF16978AA7007ECDC7 /* QuartzCore.framework in Frameworks */,
 			);
@@ -100,6 +103,7 @@
 		CC5B2C8216977AEF007ECDC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CC9496311BAC7E63009E95F1 /* AVFoundation.framework */,
 				CC5B2C8316977AEF007ECDC7 /* UIKit.framework */,
 				CC5B2C8516977AEF007ECDC7 /* Foundation.framework */,
 				CC5B2C8716977AEF007ECDC7 /* CoreGraphics.framework */,

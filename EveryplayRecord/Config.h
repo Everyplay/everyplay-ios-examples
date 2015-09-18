@@ -25,6 +25,4 @@
 
 #define USE_AUDIO 1
 
-#define USE_FMOD 1
-
 #endif
