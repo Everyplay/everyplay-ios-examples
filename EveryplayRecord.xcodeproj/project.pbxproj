@@ -421,10 +421,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EveryplayRecord/EveryplayRecord-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/EveryplayRecord/fmod/api/inc";
 				INFOPLIST_FILE = "EveryplayRecord/EveryplayRecord-Info.plist";
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/EveryplayRecord/fmod/api/lib";
-				OTHER_LDFLAGS = "-lfmodexL_$PLATFORM_NAME";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.everyplay.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -442,10 +439,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EveryplayRecord/EveryplayRecord-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/EveryplayRecord/fmod/api/inc";
 				INFOPLIST_FILE = "EveryplayRecord/EveryplayRecord-Info.plist";
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/EveryplayRecord/fmod/api/lib";
-				OTHER_LDFLAGS = "-lfmodexL_$PLATFORM_NAME";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.everyplay.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

@@ -16,12 +16,10 @@ where you'll place `everyplay-ios-examples`. No git submodule usage planned.
     - Basic audio/video recording integration against custom EAGLView implementation
     - Supports OpenGL ES1/ES2/ES3 and MSAA anti-aliased rendering
     - Live FaceCam session support
-    - Audio engine used : FMOD Sound System by Firelight Technologies
 
 - EveryplayTutorial
     - Same as EveryplayRecord but without Everyplay functionality built-in, used
       for online tutorial available at https://developers.everyplay.com/
-    - Audio engine used : FMOD Sound System by Firelight Technologies
 
 - EveryplayGLKit
     - Basic video recording test against GLKit and GLKViewController

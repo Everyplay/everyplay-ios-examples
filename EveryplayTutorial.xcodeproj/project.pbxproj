@@ -343,10 +343,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EveryplayTutorial/EveryplayTutorial-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/EveryplayTutorial/fmod/api/inc";
 				INFOPLIST_FILE = "EveryplayTutorial/EveryplayTutorial-Info.plist";
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/EveryplayTutorial/fmod/api/lib";
-				OTHER_LDFLAGS = "-lfmodexL_$PLATFORM_NAME";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.everyplay.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -364,10 +361,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "EveryplayTutorial/EveryplayTutorial-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/EveryplayTutorial/fmod/api/inc";
 				INFOPLIST_FILE = "EveryplayTutorial/EveryplayTutorial-Info.plist";
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/EveryplayTutorial/fmod/api/lib";
-				OTHER_LDFLAGS = "-lfmodexL_$PLATFORM_NAME";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.everyplay.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
